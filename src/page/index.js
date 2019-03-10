@@ -13,10 +13,13 @@ class App extends Component {
   render() {
     const { isComplete } = this.state;
 
-    const title = isComplete ? "Summary" : "deVere Mortgages";
+    const title = isComplete ? "Summary" : "deVere UK Mortgages";
+    const subTitle = isComplete
+      ? "The below summary is only applicable to any applicant(s) living or working outside of the UK, looking to purchase or remortgages a property within the UK."
+      : "";
 
     return (
-      <Layout title={title}>
+      <Layout title={title} subTitle={subTitle}>
         {isComplete ? (
           <Summary {...this.state} />
         ) : (

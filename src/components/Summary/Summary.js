@@ -75,7 +75,7 @@ const Summary = props => {
             <strong>
               If you require any further information or would like to discuss
               your mortgage options, please contact the deVere Mortgage Team on
-              +44 3333449510, or alternatively email us at
+              +44 3333449510, or alternatively email us at{" "}
               <a href="mailto:mortgages@devere-mortgages.co.uk">
                 mortgages@devere-mortgages.co.uk
               </a>
