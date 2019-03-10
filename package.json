@@ -10,7 +10,7 @@
     "react-dom": "^16.8.4",
     "react-error-boundaries": "^1.1.4",
     "react-scripts": "2.1.8",
-    "winterfell": "^1.1.4"
+    "winterfell": "andrewhathaway/Winterfell"
   },
   "scripts": {
     "start": "react-scripts start",
