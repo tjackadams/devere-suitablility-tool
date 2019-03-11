@@ -246,12 +246,6 @@ const schema = {
             action: "GOTO",
             target: "adverse-credit-panel"
           }
-          // {
-          //   questionId: "Employment",
-          //   value: 0,
-          //   action: "GOTO",
-          //   target: "employment-panel"
-          // }
         ]
       },
       button: {

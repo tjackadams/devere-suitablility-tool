@@ -9,7 +9,7 @@ const OkToProceed = "Ok to proceed.";
 
 const BuyToLetResidentialMapper = ({ answer }) => {
   const question = "Is the purchase for Buy to Let or Residential purposes?";
-  if (answer === 0) {
+  if (answer === "0") {
     return (
       <SummaryItem
         status="Ok"
@@ -32,7 +32,7 @@ const BuyToLetResidentialMapper = ({ answer }) => {
 
 const BuyToLetAgeMapper = ({ answer }) => {
   const question = "Are any of the applicants over the age of 65?";
-  if (answer === 0) {
+  if (answer === "0") {
     return (
       <SummaryItem
         status="Ok"
@@ -55,7 +55,7 @@ const BuyToLetAgeMapper = ({ answer }) => {
 
 const ResidentialAgeMapper = ({ answer }) => {
   const question = "Are any of the applicants over the age of 55?";
-  if (answer === 0) {
+  if (answer === "0") {
     return (
       <SummaryItem
         status="Ok"
@@ -69,7 +69,8 @@ const ResidentialAgeMapper = ({ answer }) => {
       <SummaryItem
         status="Warning"
         question={question}
-        answer="If the mortgage term extends into retirement, then retirement income would need to be provided to ensure monthly repayments can be met. We would advise you contact us for a full consultation."
+        answer="Yes"
+        message="If the mortgage term extends into retirement, then retirement income would need to be provided to ensure monthly repayments can be met. We would advise you contact us for a full consultation."
       />
     );
   }
@@ -77,7 +78,7 @@ const ResidentialAgeMapper = ({ answer }) => {
 
 const LimitedCompanyMapper = ({ answer }) => {
   const question = "Are you purchasing within a Limited Company?";
-  if (answer === 0) {
+  if (answer === "0") {
     return (
       <SummaryItem
         status="Ok"
@@ -100,7 +101,7 @@ const LimitedCompanyMapper = ({ answer }) => {
 
 const UKBankAccountMapper = ({ answer }) => {
   const question = "Do any of the appliants hold a UK bank account?";
-  if (answer === 0) {
+  if (answer === "0") {
     return (
       <SummaryItem
         status="Error"
@@ -123,7 +124,7 @@ const UKBankAccountMapper = ({ answer }) => {
 
 const UKPassportMapper = ({ answer }) => {
   const question = "Do any of the appliants hold a UK British Passport?";
-  if (answer === 0) {
+  if (answer === "0") {
     return (
       <SummaryItem
         status="Ok"
@@ -146,7 +147,7 @@ const UKPassportMapper = ({ answer }) => {
 
 const EUPassportMapper = ({ answer }) => {
   const question = "Do any of the appliants hold a passport within the EU?";
-  if (answer === 0) {
+  if (answer === "0") {
     return (
       <SummaryItem
         status="Warning"
@@ -183,7 +184,7 @@ const UKCreditMapper = ({ answer }) => {
       <SummaryItem
         status="Warning"
         question={question}
-        answer={answer === 0 ? "No" : "Not Sure"}
+        answer={answer === "0" ? "No" : "Not Sure"}
         message={LimitChoiceOfLenders}
       />
     );
@@ -193,7 +194,7 @@ const UKCreditMapper = ({ answer }) => {
 const AdverseCreditMapper = ({ answer }) => {
   const question =
     "Have any of the appliants ever held a CCJ, Default, Missed or late payments, IVA or any Adverse UK history?";
-  if (answer === 0) {
+  if (answer === "0") {
     return (
       <SummaryItem
         status="Ok"
@@ -216,7 +217,7 @@ const AdverseCreditMapper = ({ answer }) => {
 
 const SelfEmployedMapper = ({ answer }) => {
   const question = "Are you self-employed?";
-  if (answer === 0) {
+  if (answer === "0") {
     return (
       <SummaryItem
         status="Ok"
@@ -239,7 +240,7 @@ const SelfEmployedMapper = ({ answer }) => {
 
 const EmploymentBooksMapper = ({ answer }) => {
   const question = "Do you have 2 years books?";
-  if (answer === 0) {
+  if (answer === "0") {
     return (
       <SummaryItem
         status="Warning"
@@ -304,7 +305,7 @@ const CurrencyMapper = ({ answer }) => {
 const FirstTimeBuyerMapper = ({ answer }) => {
   const question =
     "Does any of the applicants currently own another property worldwide?";
-  if (answer === 0) {
+  if (answer === "0") {
     return (
       <SummaryItem
         status="Ok"
@@ -328,7 +329,7 @@ const FirstTimeBuyerMapper = ({ answer }) => {
 const AdditionalFundsMapper = ({ answer }) => {
   const question =
     "Would you be able to provide a 35% deposit instead of the minimum 25% deposit required?";
-  if (answer === 0) {
+  if (answer === "0") {
     return (
       <SummaryItem
         status="Warning"
