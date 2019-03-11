@@ -441,7 +441,7 @@ const schema = {
       questions: [
         {
           questionId: "LimitedCompany",
-          question: "Are you purchasing within a Limted Company?",
+          question: "Are you purchasing within a Limited Company?",
           input: {
             type: "selectInput",
             required: true,
@@ -497,7 +497,7 @@ const schema = {
       questions: [
         {
           questionId: "UKCredit",
-          question: "Do any of the appliants hold a UK credit?",
+          question: "Do any of the appliants hold a UK credit file?",
           input: {
             type: "selectInput",
             required: true,

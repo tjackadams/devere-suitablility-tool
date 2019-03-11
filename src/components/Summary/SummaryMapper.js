@@ -76,7 +76,7 @@ const ResidentialAgeMapper = ({ answer }) => {
 };
 
 const LimitedCompanyMapper = ({ answer }) => {
-  const question = "Are you purchasing within a Limted Company?";
+  const question = "Are you purchasing within a Limited Company?";
   if (answer === 0) {
     return (
       <SummaryItem
@@ -168,7 +168,7 @@ const EUPassportMapper = ({ answer }) => {
 };
 
 const UKCreditMapper = ({ answer }) => {
-  const question = "Do any of the appliants hold a UK credit?";
+  const question = "Do any of the appliants hold a UK credit file?";
   if (answer === 0) {
     return (
       <SummaryItem
