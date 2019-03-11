@@ -235,19 +235,23 @@ const schema = {
     {
       panelId: "uk-credit-panel",
       action: {
+        default: {
+          action: "GOTO",
+          target: "employment-panel"
+        },
         conditions: [
           {
             questionId: "UKCredit",
             value: 1,
             action: "GOTO",
             target: "adverse-credit-panel"
-          },
-          {
-            questionId: "Employment",
-            value: 0,
-            action: "GOTO",
-            target: "employment-panel"
           }
+          // {
+          //   questionId: "Employment",
+          //   value: 0,
+          //   action: "GOTO",
+          //   target: "employment-panel"
+          // }
         ]
       },
       button: {
@@ -501,7 +505,13 @@ const schema = {
           input: {
             type: "selectInput",
             required: true,
-            options: YesNoOptions
+            options: [
+              ...YesNoOptions,
+              {
+                text: "Not Sure",
+                value: 2
+              }
+            ]
           }
         }
       ]

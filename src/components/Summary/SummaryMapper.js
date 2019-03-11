@@ -169,22 +169,22 @@ const EUPassportMapper = ({ answer }) => {
 
 const UKCreditMapper = ({ answer }) => {
   const question = "Do any of the appliants hold a UK credit file?";
-  if (answer === 0) {
-    return (
-      <SummaryItem
-        status="Warning"
-        question={question}
-        answer="No"
-        message={LimitChoiceOfLenders}
-      />
-    );
-  } else {
+  if (answer === 1) {
     return (
       <SummaryItem
         status="Ok"
         question={question}
         answer="Yes"
         message={OkToProceed}
+      />
+    );
+  } else {
+    return (
+      <SummaryItem
+        status="Warning"
+        question={question}
+        answer={answer === 0 ? "No" : "Not Sure"}
+        message={LimitChoiceOfLenders}
       />
     );
   }
