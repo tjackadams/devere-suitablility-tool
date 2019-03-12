@@ -564,27 +564,27 @@ const schema = {
             required: true,
             options: [
               {
-                text: "GBP",
+                text: "Great British Pound (GBP)",
                 value: "gbp"
               },
               {
-                text: "SWF",
-                value: "swf"
+                text: "Swiss Franc (CHF)",
+                value: "chf"
               },
               {
-                text: "AED",
+                text: "Emirati Dirham (AED)",
                 value: "aed"
               },
               {
-                text: "QR",
-                value: "qr"
+                text: "Qatari Riyal (QAR)",
+                value: "qar"
               },
               {
-                text: "EUR",
+                text: "Euro (EUR)",
                 value: "eur"
               },
               {
-                text: "USD",
+                text: "US Dollar (USD)",
                 value: "usd"
               },
               {

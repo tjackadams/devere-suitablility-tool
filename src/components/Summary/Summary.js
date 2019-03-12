@@ -5,6 +5,7 @@ import {
   AdverseCreditMapper,
   BuyToLetResidentialMapper,
   BuyToLetAgeMapper,
+  CurrencyMapper,
   EmploymentBooksMapper,
   EUPassportMapper,
   FirstTimeBuyerMapper,
@@ -60,6 +61,9 @@ const Summary = props => {
         }
         if (item === "EmploymentBooks") {
           return <EmploymentBooksMapper key={item} answer={rest[item]} />;
+        }
+        if (item === "Currency") {
+          return <CurrencyMapper key={item} answer={rest[item]} />;
         }
         if (item === "FirstTimeBuyer") {
           return <FirstTimeBuyerMapper key={item} answer={rest[item]} />;

@@ -263,24 +263,6 @@ const EmploymentBooksMapper = ({ answer }) => {
 
 const CurrencyMapper = ({ answer }) => {
   const question = "What currency are you paid in?";
-  const getFriendlyName = ({ answer }) => {
-    switch (answer) {
-      case "gbp":
-        return "GBP;";
-      case "swf":
-        return "SWF";
-      case "aed":
-        return "AED";
-      case "qr":
-        return "QR";
-      case "eur":
-        return "EUR";
-      case "usd":
-        return "USD";
-      default:
-        return "GBP";
-    }
-  };
   if (answer === "other") {
     return (
       <SummaryItem
@@ -291,11 +273,36 @@ const CurrencyMapper = ({ answer }) => {
       />
     );
   } else {
+    let answerText = "";
+    // eslint-disable-next-line default-case
+    switch (answer) {
+      case "gbp":
+        answerText = "Great British Pound (GBP)";
+        break;
+      case "chf":
+        answerText = "Swiss Franc (CHF)";
+        break;
+      case "aed":
+        answerText = "Emirati Dirham (AED)";
+        break;
+      case "qr":
+        answerText = "Qatari Riyal (QAR)";
+        break;
+      case "eur":
+        answerText = "Euro (EUR)";
+        break;
+      case "usd":
+        answerText = "US Dollar (USD)";
+        break;
+    }
+
+    console.log(answerText);
+
     return (
       <SummaryItem
         status="Ok"
         question={question}
-        answer={getFriendlyName(answer)}
+        answer={answerText}
         message={OkToProceed}
       />
     );
