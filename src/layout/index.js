@@ -1,26 +1,33 @@
-import React, { Fragment, memo } from "react";
+import React, { memo } from "react";
 import PropTypes from "prop-types";
+import { Container, Header, Segment } from "semantic-ui-react";
+
+const style = {
+  container: {
+    marginTop: "10vh"
+  },
+  header: {
+    backgroundColor: "#003366"
+  },
+  title: {
+    color: "#FFFFFF"
+  }
+};
 
 const Layout = ({ title, subTitle, children }) => (
-  <div style={{ marginTop: "4rem", marginBottom: "4rem" }}>
-    <div className="flex-center flex-column">
-      <div className="card" style={{ width: "50vw" }}>
-        <h4 className="card-header white-text text-center py-4 devere-color">
-          <strong>{title}</strong>
-          {subTitle && (
-            <Fragment>
-              <br />
-              <span style={{ fontSize: "60%" }}>
-                <small>{subTitle}</small>
-              </span>
-            </Fragment>
-          )}
-        </h4>
-
-        <div className="card-body px-lg-5 pt-0">{children}</div>
-      </div>
-    </div>
-  </div>
+  <Container style={style.container}>
+    <Segment.Group>
+      <Segment style={style.header}>
+        <Header
+          as="h3"
+          textAlign="center"
+          style={style.title}
+          content={title}
+        />
+      </Segment>
+      {children}
+    </Segment.Group>
+  </Container>
 );
 
 Layout.propTypes = {

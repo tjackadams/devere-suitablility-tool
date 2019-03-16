@@ -10,6 +10,7 @@
 
 # production
 /build
+/src/styling/dist
 
 # misc
 .DS_Store

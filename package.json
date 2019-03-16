@@ -3,19 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
-    "mdbootstrap": "^4.7.4",
+    "keycodez": "^1.0.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-error-boundaries": "^1.1.4",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.8",
-    "winterfell": "andrewhathaway/Winterfell"
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.86.0",
+    "validator": "^10.11.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build-semantic": "cd src/styling && gulp build-css build-assets",
+    "watch-semantic": "cd src/styling && yarn run build-semantic && gulp watch",
+    "start": "yarn run build-semantic && react-scripts start",
+    "build": "yarn run build-semantic && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -26,5 +31,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "semantic-ui": "^2.4.2"
+  }
 }

@@ -82,16 +82,20 @@ const schema = {
     {
       panelId: "start-panel",
       action: {
+        default: {
+          action: "GOTO",
+          target: "btl-age-panel"
+        },
         conditions: [
           {
             questionId: "BuyToLetResidential",
-            value: "0",
+            value: 0,
             action: "GOTO",
             target: "btl-age-panel"
           },
           {
             questionId: "BuyToLetResidential",
-            value: "1",
+            value: 1,
             action: "GOTO",
             target: "resi-age-panel"
           }
@@ -187,6 +191,10 @@ const schema = {
     {
       panelId: "uk-passport-panel",
       action: {
+        default: {
+          action: "GOTO",
+          target: "uk-credit-panel"
+        },
         conditions: [
           {
             questionId: "UKPassport",
@@ -281,6 +289,10 @@ const schema = {
     {
       panelId: "employment-panel",
       action: {
+        default: {
+          action: "GOTO",
+          target: "employment-books-panel"
+        },
         conditions: [
           {
             questionId: "Employment",

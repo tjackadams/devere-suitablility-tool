@@ -3,8 +3,7 @@ import ReactDOM from "react-dom";
 import AppKernel from "./app";
 import * as serviceWorker from "./serviceWorker";
 
-import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import "../node_modules/mdbootstrap/css/mdb.css";
+import "./styling/dist/semantic.min.css";
 
 const Page = lazy(() => import("./page"));
 
