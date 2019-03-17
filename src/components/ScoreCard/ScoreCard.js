@@ -4,6 +4,7 @@ import { Container, Header, Segment } from "semantic-ui-react";
 import { Accordion } from "semantic-ui-react";
 
 import { getAnswers } from "./ScoreCardCalculator";
+import Footer from "../Footer";
 import ScoreCardContent from "./ScoreCardContent";
 
 const style = {
@@ -31,51 +32,54 @@ const ScoreCard = ({ answers }) => {
     result = errors.concat(getAnswers(answers, "Warning"));
     icon = "question circle outline";
     iconColor = "red";
-    headerText = "Error";
+    headerText = "Limited Lenders Available";
   } else {
     const warnings = getAnswers(answers, "Warning");
     if (warnings.length > 0) {
       result = warnings;
       icon = "warning circle";
       iconColor = "yellow";
-      headerText = "Warning";
+      headerText = "Limited Lenders Available";
     } else {
       result = getAnswers(answers, "Ok");
       icon = "check circle";
       iconColor = "green";
-      headerText = "Ok";
+      headerText = "Strong Case to Proceed";
     }
   }
 
   return (
-    <Container style={style.container}>
-      <Segment.Group>
-        <Segment>
-          <Header as="h2">
-            <Icon name={icon} color={iconColor} size="huge" />
-            <Header.Content>{headerText}</Header.Content>
-          </Header>
-        </Segment>
-        <Segment>
-          <Accordion
-            panels={[
-              {
-                key: "reasons",
-                title: "View Reasons",
-                content: result.map(a => (
-                  <ScoreCardContent
-                    key={a.id}
-                    question={a.question}
-                    answer={a.answer}
-                    reason={a.reason}
-                  />
-                ))
-              }
-            ]}
-          />
-        </Segment>
-      </Segment.Group>
-    </Container>
+    <>
+      <Container style={style.container}>
+        <Segment.Group>
+          <Segment>
+            <Header as="h2">
+              <Icon name={icon} color={iconColor} size="huge" />
+              <Header.Content>{headerText}</Header.Content>
+            </Header>
+          </Segment>
+          <Segment>
+            <Accordion
+              panels={[
+                {
+                  key: "reasons",
+                  title: `View Reasons (${result.length})`,
+                  content: result.map(a => (
+                    <ScoreCardContent
+                      key={a.id}
+                      question={a.question}
+                      answer={a.answer}
+                      reason={a.reason}
+                    />
+                  ))
+                }
+              ]}
+            />
+          </Segment>
+        </Segment.Group>
+      </Container>
+      <Footer />
+    </>
   );
 };
 
