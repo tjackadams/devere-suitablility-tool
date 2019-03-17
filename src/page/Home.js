@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Segment } from "semantic-ui-react";
 
 import Layout from "../layout";
@@ -20,16 +21,16 @@ class Home extends React.PureComponent {
           <Winterfell
             schema={schema}
             onUpdate={update => {
-              console.log(update);
               this.setState({
                 questionsCurrentCount: update.questionsCurrentCount,
                 questionsTotalCount: update.questionsTotalCount
               });
             }}
-            onSwitchPanel={panel => console.log(panel)}
             onSubmit={(questionAnswers, action) => {
-              console.log(questionAnswers);
-              console.log("submit!");
+              this.props.history.push({
+                pathname: "/result",
+                state: { answers: questionAnswers }
+              });
             }}
             disableSubmit
           />
@@ -39,11 +40,18 @@ class Home extends React.PureComponent {
             value={this.state.questionsCurrentCount}
             total={this.state.questionsTotalCount}
             size="tiny"
+            color="blue"
           />
         </Segment>
       </Layout>
     );
   }
 }
+
+Home.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  })
+};
 
 export default Home;
