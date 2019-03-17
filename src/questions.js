@@ -87,6 +87,89 @@ const questions = [
     ]
   },
   {
+    questionSetId: "country-set",
+    questions: [
+      {
+        questionId: "Country",
+        question: "In which country do you currently reside?",
+        input: {
+          type: "selectInput",
+          required: true,
+          options: [
+            {
+              text: "China",
+              value: "china",
+              state: "Ok"
+            },
+            {
+              text: "France",
+              value: "france",
+              state: "Ok"
+            },
+            {
+              text: "Hong Kong",
+              value: "hongkong",
+              state: "Ok"
+            },
+            {
+              text: "Kuwait",
+              value: "kuwait",
+              state: "Ok"
+            },
+            {
+              text: "Netherlands",
+              value: "netherlands",
+              state: "Ok"
+            },
+            {
+              text: "New Zealand",
+              value: "newzealand",
+              state: "Ok"
+            },
+            {
+              text: "Oman",
+              value: "oman",
+              state: "Ok"
+            },
+            {
+              text: "Qatar",
+              value: "qatar",
+              state: "Ok"
+            },
+            {
+              text: "Spain",
+              value: "spain",
+              state: "Ok"
+            },
+            {
+              text: "Switzerland",
+              value: "switzerland",
+              state: "Ok"
+            },
+            {
+              text: "United Arab Emirates",
+              value: "uae",
+              state: "Ok"
+            },
+
+            {
+              text: "United States of America",
+              value: "usa",
+              state: "Ok"
+            },
+
+            {
+              text: "Other",
+              value: "other",
+              state: "Warning",
+              reason: LimitChoiceOfLenders
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
     questionSetId: "limited-company-set",
     questions: [
       {

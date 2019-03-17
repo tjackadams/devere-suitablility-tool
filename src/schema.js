@@ -27,46 +27,50 @@ const schema = {
     },
     {
       index: 4,
-      panelId: "limited-company-panel"
+      panelId: "country-panel"
     },
     {
       index: 5,
-      panelId: "uk-bank-account-panel"
+      panelId: "limited-company-panel"
     },
     {
       index: 6,
-      panelId: "uk-passport-panel"
+      panelId: "uk-bank-account-panel"
     },
     {
       index: 7,
-      panelId: "eu-passport-panel"
+      panelId: "uk-passport-panel"
     },
     {
       index: 8,
-      panelId: "uk-credit-panel"
+      panelId: "eu-passport-panel"
     },
     {
       index: 9,
-      panelId: "adverse-credit-panel"
+      panelId: "uk-credit-panel"
     },
     {
       index: 10,
-      panelId: "employment-panel"
+      panelId: "adverse-credit-panel"
     },
     {
       index: 11,
-      panelId: "employment-books-panel"
+      panelId: "employment-panel"
     },
     {
       index: 12,
-      panelId: "currency-panel"
+      panelId: "employment-books-panel"
     },
     {
       index: 13,
-      panelId: "first-time-buyer-panel"
+      panelId: "currency-panel"
     },
     {
       index: 14,
+      panelId: "first-time-buyer-panel"
+    },
+    {
+      index: 15,
       panelId: "additional-funds-panel"
     }
   ],
@@ -109,7 +113,7 @@ const schema = {
       action: {
         default: {
           action: "GOTO",
-          target: "limited-company-panel"
+          target: "country-panel"
         }
       },
       button: {
@@ -128,7 +132,7 @@ const schema = {
       action: {
         default: {
           action: "GOTO",
-          target: "limited-company-panel"
+          target: "country-panel"
         }
       },
       button: {
@@ -139,6 +143,25 @@ const schema = {
         {
           index: 1,
           questionSetId: "resi-age-set"
+        }
+      ]
+    },
+    {
+      panelId: "country-panel",
+      action: {
+        default: {
+          action: "GOTO",
+          target: "limited-company-panel"
+        }
+      },
+      button: {
+        text: "Next",
+        disabled: false
+      },
+      questionSets: [
+        {
+          index: 1,
+          questionSetId: "country-set"
         }
       ]
     },
