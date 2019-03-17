@@ -21,6 +21,12 @@ const questions = [
               text: "Residential",
               value: 1,
               state: "Ok"
+            },
+            {
+              text: "Not Sure",
+              value: 2,
+              state: "Warning",
+              reason: LimitChoiceOfLenders
             }
           ]
         }
@@ -38,15 +44,15 @@ const questions = [
           required: true,
           options: [
             {
+              text: "No",
+              value: 0,
+              state: "Ok"
+            },
+            {
               text: "Yes",
               value: 1,
               state: "Warning",
               reason: LimitChoiceOfLenders
-            },
-            {
-              text: "No",
-              value: 0,
-              state: "Ok"
             }
           ]
         }
@@ -64,16 +70,16 @@ const questions = [
           required: true,
           options: [
             {
+              text: "No",
+              value: 0,
+              state: "Ok"
+            },
+            {
               text: "Yes",
               value: 1,
               state: "Warning",
               reason:
                 "If the mortgage term extends into retirement, then retirement income would need to be provided to ensure monthly repayments can be met. We would advise you contact us for a full consultation."
-            },
-            {
-              text: "No",
-              value: 0,
-              state: "Ok"
             }
           ]
         }
@@ -91,15 +97,15 @@ const questions = [
           required: true,
           options: [
             {
+              text: "No",
+              value: 0,
+              state: "Ok"
+            },
+            {
               text: "Yes",
               value: 1,
               state: "Warning",
               reason: LimitChoiceOfLenders
-            },
-            {
-              text: "No",
-              value: 0,
-              state: "Ok"
             }
           ]
         }
@@ -127,6 +133,12 @@ const questions = [
               state: "Error",
               reason:
                 "Most lenders require monthly payments to come from  UK mainland bank account. There are lenders that will accept offshore UK bank accounts, but this could have an adverse affect on the offered interest rate. We would advise you contact us for a full consultation."
+            },
+            {
+              text: "Not Sure",
+              value: 2,
+              state: "Warning",
+              reason: LimitChoiceOfLenders
             }
           ]
         }
@@ -152,6 +164,12 @@ const questions = [
               text: "No",
               value: 0,
               state: "Ok"
+            },
+            {
+              text: "Not Sure",
+              value: 2,
+              state: "Warning",
+              reason: LimitChoiceOfLenders
             }
           ]
         }
@@ -223,11 +241,16 @@ const questions = [
       {
         questionId: "AdverseCredit",
         question:
-          "Have any of the appliants ever held a CCJ, Default, Missed or late payments,IVA or any Adverse UK history?",
+          "Have any of the appliants ever held a CCJ, Default, Missed or late payments, IVA or any Adverse UK history?",
         input: {
           type: "selectInput",
           required: true,
           options: [
+            {
+              text: "No",
+              value: 0,
+              state: "Ok"
+            },
             {
               text: "Yes",
               value: 1,
@@ -235,9 +258,10 @@ const questions = [
               reason: LimitChoiceOfLenders
             },
             {
-              text: "No",
-              value: 0,
-              state: "Ok"
+              text: "Not Sure",
+              value: 2,
+              state: "Warning",
+              reason: LimitChoiceOfLenders
             }
           ]
         }
@@ -255,13 +279,13 @@ const questions = [
           required: true,
           options: [
             {
-              text: "Yes",
-              value: 1,
+              text: "No",
+              value: 0,
               state: "Ok"
             },
             {
-              text: "No",
-              value: 0,
+              text: "Yes",
+              value: 1,
               state: "Ok"
             }
           ]
@@ -352,7 +376,7 @@ const questions = [
       {
         questionId: "FirstTimeBuyer",
         question:
-          "Does any of the applicants currently own another property worldwide?",
+          "Do any of the applicants currently own another property worldwide?",
         input: {
           type: "selectInput",
           required: true,
@@ -362,7 +386,7 @@ const questions = [
               value: 1,
               state: "Ok",
               reason:
-                "Regardless of whether this is your first property in the UK, you will still be subject to the additional Stamp Duty Land Tax charges."
+                "Regardless of whether this is your first property in the UK for any of the applicants, you will still be subject to the additional Stamp Duty Land Tax charges. The additional charges will still apply if you are married and purchase as a sole applicant first time buyer within the UK, but your spouse currently owns property worldwide."
             },
             {
               text: "No",

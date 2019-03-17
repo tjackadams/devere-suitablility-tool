@@ -28,13 +28,12 @@ const ScoreCard = ({ answers }) => {
 
   const errors = getAnswers(answers, "Error");
   if (errors.length > 0) {
-    result = errors;
+    result = errors.concat(getAnswers(answers, "Warning"));
     icon = "question circle outline";
     iconColor = "red";
     headerText = "Error";
   } else {
     const warnings = getAnswers(answers, "Warning");
-    console.log("warnings", warnings);
     if (warnings.length > 0) {
       result = warnings;
       icon = "warning circle";
