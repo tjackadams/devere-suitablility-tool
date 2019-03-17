@@ -28,18 +28,20 @@ class SelectInput extends React.Component {
     ));
 
     return (
-      <select
-        name={this.props.name}
-        id={this.props.id}
-        className={this.props.classes.select}
-        value={this.state.value}
-        ref={this.select}
-        required={this.props.required ? "required" : undefined}
-        onChange={this.handleChange.bind(this)}
-        onBlur={this.props.onBlur.bind(null, this.state.value)}
-      >
-        {options}
-      </select>
+      <div className="select">
+        <select
+          name={this.props.name}
+          id={this.props.id}
+          className={this.props.classes.select}
+          value={this.state.value}
+          ref={this.select}
+          required={this.props.required ? "required" : undefined}
+          onChange={this.handleChange.bind(this)}
+          onBlur={this.props.onBlur.bind(null, this.state.value)}
+        >
+          {options}
+        </select>
+      </div>
     );
   }
 
