@@ -3,9 +3,11 @@ import QuestionSet from "./QuestionSet";
 import * as Validation from "./lib/Validation";
 import * as KeyCodez from "keycodez";
 import * as ErrorMessages from "./lib/errors";
-import Button from "./Button";
+import _ from "lodash";
 
-var _ = require("lodash").noConflict();
+import Log from "../../Log";
+
+import Button from "./Button";
 
 class QuestionPanel extends React.Component {
   constructor(props) {
@@ -56,8 +58,7 @@ class QuestionPanel extends React.Component {
     var action = this.props.action.default;
     var conditions = this.props.action.conditions || [];
 
-    console.log("props");
-    console.log(this.props);
+    Log.info("props", this.props);
 
     /*
      * We need to get all the question sets for this panel.
@@ -101,14 +102,9 @@ class QuestionPanel extends React.Component {
      * Check our conditions and act upon them, or the default.
      */
     conditions.forEach(condition => {
-      console.log("question answers");
-      console.log(this.props.questionAnswers);
+      Log.info("question answers", this.props.questionAnswers);
       var answer = this.props.questionAnswers[condition.questionId];
 
-      console.log("answer");
-      console.log(answer);
-      console.log("action before");
-      console.log(action);
       action =
         answer == condition.value
           ? {
@@ -118,13 +114,11 @@ class QuestionPanel extends React.Component {
           : action;
     });
 
-    console.log("action after");
-    console.log(action);
-
     /*
      * Decide which action to take depending on
      * the action decided upon.
      */
+    // eslint-disable-next-line default-case
     switch (action.action) {
       case "GOTO":
         this.props.onSwitchPanel(action.target);

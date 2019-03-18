@@ -3,6 +3,8 @@ import { Icon } from "semantic-ui-react";
 import { Container, Header, Segment } from "semantic-ui-react";
 import { Accordion } from "semantic-ui-react";
 
+import Log from "../../Log";
+
 import { getAnswers } from "./ScoreCardCalculator";
 import Footer from "../Footer";
 import ScoreCardContent from "./ScoreCardContent";
@@ -45,7 +47,7 @@ const ContactInformation = ({ state }) => {
 };
 
 const ScoreCard = ({ answers }) => {
-  console.log("answers", answers);
+  Log.info("answers", answers);
 
   let result;
   let icon;

@@ -10,6 +10,10 @@ const Page = lazy(() => import("./page"));
 
 const App = AppKernel(Page);
 
+if (process.env.NODE_ENV !== "production") {
+  localStorage.setItem("debug", "devere-suitability-tool:*");
+}
+
 ReactDOM.render(<App />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change

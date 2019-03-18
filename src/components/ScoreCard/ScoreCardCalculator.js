@@ -1,5 +1,7 @@
 import questions from "../../questions";
 
+import Log from "../../Log";
+
 function getAnswers(answers, state) {
   const result = Object.keys(answers).map(answer => {
     const questionSet = questions
@@ -39,11 +41,11 @@ function getAnswers(answers, state) {
   const myResult = [];
 
   Object.keys(result).map(r => {
-    console.log(result[r]);
+    Log.info(result[r]);
     myResult.push(result[r]);
   });
 
-  console.log(myResult);
+  Log.info(myResult);
 
   return myResult;
 }
