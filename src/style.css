@@ -3,6 +3,11 @@
   margin-bottom: 1rem;
 }
 
+.devere-color {
+  background-color: #003366 !important;
+  color: #ffffff !important;
+}
+
 .question-label {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 1.2rem;
