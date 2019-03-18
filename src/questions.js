@@ -200,7 +200,7 @@ const questions = [
     questions: [
       {
         questionId: "UKBankAccount",
-        question: "Do any of the appliants hold a UK bank account?",
+        question: "Do any of the applicants hold a UK bank account?",
         input: {
           type: "selectInput",
           required: true,
@@ -233,7 +233,7 @@ const questions = [
     questions: [
       {
         questionId: "UKPassport",
-        question: "Do any of the appliants hold a UK British Passport?",
+        question: "Do any of the applicants hold a UK British Passport?",
         input: {
           type: "selectInput",
           required: true,
@@ -264,7 +264,7 @@ const questions = [
     questions: [
       {
         questionId: "EUPassport",
-        question: "Do any of the appliants hold a passport within the EU?",
+        question: "Do any of the applicants hold a passport within the EU?",
         input: {
           type: "selectInput",
           required: true,
@@ -291,7 +291,7 @@ const questions = [
     questions: [
       {
         questionId: "UKCredit",
-        question: "Do any of the appliants hold a UK credit file?",
+        question: "Do any of the applicants hold a UK credit file?",
         input: {
           type: "selectInput",
           required: true,
@@ -324,7 +324,7 @@ const questions = [
       {
         questionId: "AdverseCredit",
         question:
-          "Have any of the appliants ever held a CCJ, Default, Missed or late payments, IVA or any Adverse UK history?",
+          "Have any of the applicants ever held a CCJ, Default, Missed or late payments, IVA or any Adverse UK history?",
         input: {
           type: "selectInput",
           required: true,

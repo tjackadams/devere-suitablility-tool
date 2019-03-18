@@ -31,13 +31,17 @@ const ContactInformation = ({ state }) => {
   }
 
   const contact =
-    "Please contact the deVere Mortgage Team on +44 3333449510, or alternatively email us to book in for a free telephone consulatation at mortgages@devere-mortgages.co.uk";
+    "Please contact the deVere Mortgage Team on +44 3333449510, or alternatively email us to book in for a free telephone consultation at mortgages@devere-mortgages.co.uk";
 
-  return <Header as="h4" >
-  <Header.Content>
-  {text}<br />{contact}
-  </Header.Content>
-  </Header>;
+  return (
+    <Header as="h4">
+      <Header.Content>
+        {text}
+        <br />
+        {contact}
+      </Header.Content>
+    </Header>
+  );
 };
 
 const ScoreCard = ({ answers }) => {
