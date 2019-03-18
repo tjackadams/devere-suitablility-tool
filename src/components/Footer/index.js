@@ -5,7 +5,11 @@ const Footer = () => (
   <Container text textAlign="center">
     <Segment.Group>
       <Segment vertical>
-        <a href="https://www.devere-mortgages.co.uk/terms-of-use">
+        <a
+          href="https://www.devere-mortgages.co.uk/terms-of-use"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Terms of use
         </a>
       </Segment>
