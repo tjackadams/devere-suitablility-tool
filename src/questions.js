@@ -381,7 +381,7 @@ const questions = [
     questions: [
       {
         questionId: "EmploymentBooks",
-        question: "Do you have 2 years books?",
+        question: "Do you have at least 2 years audited accounts?",
         input: {
           type: "selectInput",
           required: true,
