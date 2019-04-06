@@ -19,9 +19,9 @@
   },
   "scripts": {
     "build-semantic": "cd src/styling && gulp build-css build-assets",
-    "watch-semantic": "cd src/styling && yarn run build-semantic && gulp watch",
-    "start": "yarn run build-semantic && react-scripts start",
-    "build": "yarn run build-semantic && react-scripts build",
+    "watch-semantic": "cd src/styling && npm run build-semantic && gulp watch",
+    "start": "npm run build-semantic && react-scripts start",
+    "build": "npm run build-semantic && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
@@ -36,5 +36,8 @@
   ],
   "devDependencies": {
     "semantic-ui": "^2.4.2"
+  },
+  "engines": {
+    "yarn": "YARN NO LONGER USED - use npm instead."
   }
 }
