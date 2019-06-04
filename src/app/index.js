@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { FluentCustomizations } from "@uifabric/fluent-theme";
 import { Customizer, mergeStyles } from "office-ui-fabric-react";
 
+import { StoreProvider } from "../context/StoreContext";
 import { PageLoader } from "../components/Spinners";
 
 // Inject some global styles
@@ -23,7 +24,9 @@ const AppKernel = Component => {
       <ErrorBoundary FallbackComponent={FallbackView}>
         <Suspense fallback={<PageLoader />}>
           <Router>
-            <Component />
+            <StoreProvider>
+              <Component />
+            </StoreProvider>
           </Router>
         </Suspense>
       </ErrorBoundary>

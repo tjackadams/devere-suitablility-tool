@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import posed, { PoseGroup } from "react-pose";
 
-import Home from "./Home.tsx";
+import Home from "./Home";
 //import Result from "./Result";
 
 const RoutesContainer = posed.div({
