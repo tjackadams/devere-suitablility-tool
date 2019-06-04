@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import AppKernel from "./app";
 import * as serviceWorker from "./serviceWorker";
 
-import "./styling/dist/semantic.min.css";
 import "./style.css";
 
 const Page = lazy(() => import("./page"));
