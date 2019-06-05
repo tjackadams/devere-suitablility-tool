@@ -1,5 +1,5 @@
 import React from "react";
-import { Button as SemButton } from "semantic-ui-react";
+import { DefaultButton, PrimaryButton } from "office-ui-fabric-react";
 
 class Button extends React.Component {
   handleClick = e => {
@@ -9,14 +9,23 @@ class Button extends React.Component {
   };
 
   render() {
+    if (this.props.primary) {
+      return (
+        <PrimaryButton
+          onClick={this.handleClick}
+          className={this.props.className}
+        >
+          {this.props.text}
+        </PrimaryButton>
+      );
+    }
     return (
-      <SemButton
-        href="#"
-        className={this.props.className}
+      <DefaultButton
         onClick={this.handleClick}
+        className={this.props.className}
       >
         {this.props.text}
-      </SemButton>
+      </DefaultButton>
     );
   }
 }

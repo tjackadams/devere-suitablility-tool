@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import { ProgressIndicator } from "office-ui-fabric-react/lib/ProgressIndicator";
+import { mergeStyleSets, DefaultPalette } from "office-ui-fabric-react";
 
+const styles = mergeStyleSets({
+  progressBar: {
+    backgroundColor: "#003366"
+  }
+});
 class ProgressBar extends Component {
   constructor(props) {
     super(props);
@@ -39,8 +45,14 @@ class ProgressBar extends Component {
 
   render() {
     const { percentComplete } = this.state;
-
-    return <ProgressIndicator percentComplete={percentComplete} />;
+    console.log("percentComplete", percentComplete);
+    return (
+      <ProgressIndicator
+        percentComplete={percentComplete}
+        barHeight={8}
+        styles={styles}
+      />
+    );
   }
 }
 

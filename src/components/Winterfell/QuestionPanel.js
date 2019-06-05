@@ -245,6 +245,7 @@ class QuestionPanel extends React.Component {
               text={this.props.button.text}
               onClick={this.handleMainButtonClick.bind(this)}
               className={this.props.classes.controlButton}
+              primary
             />
           ) : (
             undefined
