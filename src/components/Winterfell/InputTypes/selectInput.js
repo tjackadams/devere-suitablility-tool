@@ -1,4 +1,5 @@
 import React from "react";
+import { Dropdown } from "office-ui-fabric-react/lib/Dropdown";
 
 class SelectInput extends React.Component {
   constructor(props) {
@@ -21,15 +22,13 @@ class SelectInput extends React.Component {
   }
 
   render() {
-    var options = this.props.options.map(opt => (
-      <option key={opt.value} value={opt.value}>
-        {opt.text}
-      </option>
-    ));
-
+    var options = this.props.options.map(opt => {
+      return { key: opt.value, text: opt.text };
+    });
+    console.log("options", this.props.options);
     return (
       <div className="select">
-        <select
+        <Dropdown
           name={this.props.name}
           id={this.props.id}
           className={this.props.classes.select}
@@ -38,9 +37,9 @@ class SelectInput extends React.Component {
           required={this.props.required ? "required" : undefined}
           onChange={this.handleChange.bind(this)}
           onBlur={this.props.onBlur.bind(null, this.state.value)}
-        >
-          {options}
-        </select>
+          options={options}
+          label={this.props.label}
+        />
       </div>
     );
   }

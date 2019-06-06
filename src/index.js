@@ -1,5 +1,7 @@
 import React, { lazy } from "react";
 import ReactDOM from "react-dom";
+import { initializeIcons } from "office-ui-fabric-react/lib/Icons";
+
 import AppKernel from "./app";
 import * as serviceWorker from "./serviceWorker";
 
@@ -12,6 +14,8 @@ const App = AppKernel(Page);
 if (process.env.NODE_ENV !== "production") {
   localStorage.setItem("debug", "devere-suitability-tool:*");
 }
+
+initializeIcons();
 
 ReactDOM.render(<App />, document.getElementById("root"));
 

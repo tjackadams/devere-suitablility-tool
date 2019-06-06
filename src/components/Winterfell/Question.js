@@ -2,6 +2,8 @@ import React from "react";
 
 import InputTypes from "./InputTypes";
 
+import { Text } from "office-ui-fabric-react/lib/Text";
+
 class Question extends React.Component {
   handleInputChange(questionId, value) {
     this.props.onAnswerChange(
@@ -46,8 +48,8 @@ class Question extends React.Component {
         .filter(option => {
           return this.props.value instanceof Array
             ? this.props.value.indexOf(option.value) > -1
-            // eslint-disable-next-line eqeqeq
-            : this.props.value == option.value;
+            : // eslint-disable-next-line eqeqeq
+              this.props.value == option.value;
         })
         .filter(option => {
           return (
@@ -116,24 +118,17 @@ class Question extends React.Component {
 
     return (
       <div className={this.props.classes.question}>
-        {!!this.props.question ? (
-          <label
-            className={this.props.classes.label}
-            id={labelId}
-            htmlFor={this.props.questionId}
-          >
-            {this.props.question}
-            {typeof this.props.renderRequiredAsterisk !== "undefined" &&
-            this.props.input.required
-              ? this.props.renderRequiredAsterisk()
-              : undefined}
-          </label>
-        ) : (
-          undefined
-        )}
         {!!this.props.text ? (
-          <p className={this.props.classes.questionText}>{this.props.text}</p>
+          <Text
+            variant="XLarge"
+            className={this.props.classes.questionText}
+            nowrap
+            block
+          >
+            {this.props.text}
+          </Text>
         ) : (
+          // <p className={this.props.classes.questionText}>{this.props.text}</p>
           undefined
         )}
         {validationErrors}
@@ -153,6 +148,7 @@ class Question extends React.Component {
           {...(typeof this.props.input.props === "object"
             ? this.props.input.props
             : {})}
+          label={this.props.question}
         />
         {!!this.props.postText ? (
           <p className={this.props.classes.questionPostText}>
