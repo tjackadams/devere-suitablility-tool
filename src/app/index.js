@@ -5,7 +5,7 @@ import { FluentCustomizations } from "@uifabric/fluent-theme";
 import { Customizer, mergeStyles } from "office-ui-fabric-react";
 
 import { StoreProvider } from "../context/StoreContext";
-import { PageLoader } from "../components/Spinners";
+import { PageLoader } from "../components/Progress";
 
 // Inject some global styles
 mergeStyles({

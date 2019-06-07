@@ -4,18 +4,16 @@ import {
   mergeStyleSets,
   DefaultPalette,
   Stack,
-  Text,
-  Link,
-  FontWeights
+  Text
 } from "office-ui-fabric-react";
+
 import Winterfell from "../components/Winterfell";
 import schema from "../schema.js";
-import { ProgressBar } from "../components/Spinners";
+
+import Footer from "../components/Footer";
+import { ProgressBar } from "../components/Progress";
 import { StoreContext } from "../context/StoreContext";
 import { types } from "../context/reducers";
-import Log from "../Log";
-
-const boldStyle = { root: { fontWeight: FontWeights.semibold } };
 
 const styles = mergeStyleSets({
   container: {
@@ -105,36 +103,7 @@ const Home = () => {
               disableSubmit
             />
           </Stack.Item>
-          <Stack.Item className={styles.item}>Footer</Stack.Item>
-        </Stack>
-      </Stack>
-
-      <Stack className={styles.root}>
-        <Stack
-          className={styles.root}
-          horizontalAlign="center"
-          fillVertical
-          styles={{ marginTop: "20px" }}
-          padding={60}
-        >
-          <Stack.Item
-            horizontalAlign="center"
-            className={styles.item}
-            styles={{
-              root: {
-                backgroundColor: "#003366",
-                padding: 10
-              }
-            }}
-            grow={1}
-          />
-          <Stack.Item
-            horizontalAlign="center"
-            className={styles.item}
-            styles={{
-              root: { backgroundColor: DefaultPalette.white, padding: 10 }
-            }}
-          />
+          <Footer />
         </Stack>
       </Stack>
     </Fragment>

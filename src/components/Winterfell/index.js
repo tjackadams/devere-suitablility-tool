@@ -58,7 +58,8 @@ class Winterfell extends React.Component {
       action: props.action,
       questionAnswers: props.questionAnswers,
       questionsCurrentCount: 0,
-      questionsTotalCount: questionsTotalCount
+      questionsTotalCount: questionsTotalCount,
+      preventHandleChange: true
     };
   }
 
@@ -84,10 +85,10 @@ class Winterfell extends React.Component {
 
     this.setState(
       state => {
-        const newCount =
-          state.questionsCurrentCount === 0
-            ? questionsCurrentCount
-            : Math.min(state.questionsCurrentCount, questionsCurrentCount);
+        const newCount = Math.min(
+          state.questionsCurrentCount,
+          questionsCurrentCount
+        );
         return {
           questionAnswers: questionAnswers,
           questionsCurrentCount: newCount + 1
