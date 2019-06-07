@@ -75,25 +75,35 @@ class Winterfell extends React.Component {
       .set(questionId, questionAnswer)
       .value();
 
+    if (this.state.preventHandleChange) {
+      return;
+    }
+
     const questionsCurrentCount = Object.keys(this.state.questionAnswers)
       .length;
 
-    const { questionsTotalCount } = this.state;
-
     this.setState(
-      {
-        questionAnswers: questionAnswers,
-        questionsCurrentCount: questionsCurrentCount
+      state => {
+        const newCount =
+          state.questionsCurrentCount === 0
+            ? questionsCurrentCount
+            : Math.min(state.questionsCurrentCount, questionsCurrentCount);
+        return {
+          questionAnswers: questionAnswers,
+          questionsCurrentCount: newCount + 1
+        };
       },
-      this.props.onUpdate.bind(null, {
-        questionAnswer,
-        questionsCurrentCount,
-        questionsTotalCount
-      })
+      () => {
+        this.props.onUpdate({
+          questionAnswer,
+          questionsCurrentCount: this.state.questionsCurrentCount,
+          questionsTotalCount: this.state.questionsTotalCount
+        });
+      }
     );
   };
 
-  handleSwitchPanel(panelId, preventHistory) {
+  handleSwitchPanel(panelId, preventHistory, preventHandleChange = false) {
     var panel = _.find(this.props.schema.formPanels, {
       panelId: panelId
     });
@@ -111,10 +121,15 @@ class Winterfell extends React.Component {
     }
 
     this.setState(
-      {
-        currentPanel: panel
+      state => {
+        return {
+          preventHandleChange: preventHandleChange,
+          currentPanel: panel
+        };
       },
-      this.props.onSwitchPanel.bind(null, panel)
+      () => {
+        this.props.onSwitchPanel(panel);
+      }
     );
   }
 
@@ -124,7 +139,22 @@ class Winterfell extends React.Component {
     this.handleSwitchPanel.call(
       this,
       this.panelHistory[this.panelHistory.length - 1],
+      true,
       true
+    );
+    this.setState(
+      state => {
+        return {
+          questionsCurrentCount: state.questionsCurrentCount - 1
+        };
+      },
+      () => {
+        this.props.onUpdate({
+          questionAnswer: undefined,
+          questionsCurrentCount: this.state.questionsCurrentCount,
+          questionsTotalCount: this.state.questionsTotalCount
+        });
+      }
     );
   };
 

@@ -1,6 +1,7 @@
 import React, { lazy } from "react";
 import ReactDOM from "react-dom";
 import { initializeIcons } from "office-ui-fabric-react/lib/Icons";
+import ReactGA from "react-ga";
 
 import AppKernel from "./app";
 import * as serviceWorker from "./serviceWorker";
@@ -16,6 +17,8 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 initializeIcons();
+
+ReactGA.initialize(process.env.REACT_APP_GA_TRACKINGID);
 
 ReactDOM.render(<App />, document.getElementById("root"));
 

@@ -2,6 +2,8 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import posed, { PoseGroup } from "react-pose";
 
+import { withTracker } from "../hocs/withTracker";
+
 import Home from "./Home";
 //import Result from "./Result";
 
@@ -16,7 +18,7 @@ const Page = () => (
       <PoseGroup>
         <RoutesContainer key={location.pathname}>
           <Switch location={location} key="switch">
-            <Route path="/" exact component={Home} key="home" />
+            <Route path="/" exact component={withTracker(Home)} key="home" />
             {
               // <Route path="/result" component={Result} key="result" />
             }

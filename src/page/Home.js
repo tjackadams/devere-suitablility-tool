@@ -61,10 +61,9 @@ const styles = mergeStyleSets({
 const Home = () => {
   const { state, dispatch } = useContext(StoreContext);
 
-  Log.info("state", state);
   return (
     <Fragment>
-      {state.progress.currentValue > 1 ? (
+      {state.progress.currentValue > 0 ? (
         <ProgressBar
           currentValue={state.progress.currentValue}
           total={state.progress.total}
@@ -88,6 +87,7 @@ const Home = () => {
             <Winterfell
               schema={schema}
               onUpdate={update => {
+                console.log("update", update);
                 dispatch({
                   type: types.SET_PROGRESS,
                   payload: {

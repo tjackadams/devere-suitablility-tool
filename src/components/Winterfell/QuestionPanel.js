@@ -121,7 +121,7 @@ class QuestionPanel extends React.Component {
     // eslint-disable-next-line default-case
     switch (action.action) {
       case "GOTO":
-        this.props.onSwitchPanel(action.target);
+        this.props.onSwitchPanel(action.target, false);
         break;
 
       case "SUBMIT":
