@@ -14,6 +14,7 @@ class Button extends React.Component {
         <PrimaryButton
           onClick={this.handleClick}
           className={this.props.className}
+          style={{ backgroundColor: "#003366" }}
         >
           {this.props.text}
         </PrimaryButton>

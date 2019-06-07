@@ -15,7 +15,8 @@ const questions = [
             {
               text: "Buy to Let",
               value: 0,
-              state: "Ok"
+              state: "Ok",
+              default: true
             },
             {
               text: "Residential",
@@ -46,7 +47,8 @@ const questions = [
             {
               text: "No",
               value: 0,
-              state: "Ok"
+              state: "Ok",
+              default: true
             },
             {
               text: "Yes",
@@ -182,7 +184,8 @@ const questions = [
             {
               text: "No",
               value: 0,
-              state: "Ok"
+              state: "Ok",
+              default: true
             },
             {
               text: "Yes",
@@ -208,7 +211,8 @@ const questions = [
             {
               text: "Yes",
               value: 1,
-              state: "Ok"
+              state: "Ok",
+              default: true
             },
             {
               text: "No",
@@ -241,7 +245,8 @@ const questions = [
             {
               text: "Yes",
               value: 1,
-              state: "Ok"
+              state: "Ok",
+              default: true
             },
             {
               text: "No",
@@ -273,7 +278,8 @@ const questions = [
               text: "Yes",
               value: 1,
               state: "Warning",
-              reason: LimitChoiceOfLenders
+              reason: LimitChoiceOfLenders,
+              default: true
             },
             {
               text: "No",
@@ -299,7 +305,8 @@ const questions = [
             {
               text: "Yes",
               value: 1,
-              state: "Ok"
+              state: "Ok",
+              default: true
             },
             {
               text: "No",
@@ -332,7 +339,8 @@ const questions = [
             {
               text: "No",
               value: 0,
-              state: "Ok"
+              state: "Ok",
+              default: true
             },
             {
               text: "Yes",
@@ -364,7 +372,8 @@ const questions = [
             {
               text: "No",
               value: 0,
-              state: "Ok"
+              state: "Ok",
+              default: true
             },
             {
               text: "Yes",
@@ -389,7 +398,8 @@ const questions = [
             {
               text: "Yes",
               value: 1,
-              state: "Ok"
+              state: "Ok",
+              default: true
             },
             {
               text: "No",
@@ -469,7 +479,8 @@ const questions = [
               value: 1,
               state: "Ok",
               reason:
-                "Regardless of whether this is your first property in the UK for any of the applicants, you will still be subject to the additional Stamp Duty Land Tax charges. The additional charges will still apply if you are married and purchase as a sole applicant first time buyer within the UK, but your spouse currently owns property worldwide."
+                "Regardless of whether this is your first property in the UK for any of the applicants, you will still be subject to the additional Stamp Duty Land Tax charges. The additional charges will still apply if you are married and purchase as a sole applicant first time buyer within the UK, but your spouse currently owns property worldwide.",
+              default: true
             },
             {
               text: "No",
@@ -499,7 +510,8 @@ const questions = [
               value: 1,
               state: "Ok",
               reason:
-                "Additional lenders and lower rates can be offered, if the deposit is above 35% of the property value. This can be subject to other criteria being met."
+                "Additional lenders and lower rates can be offered, if the deposit is above 35% of the property value. This can be subject to other criteria being met.",
+              default: true
             },
             {
               text: "No",

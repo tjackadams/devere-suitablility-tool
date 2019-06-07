@@ -22,10 +22,12 @@ class SelectInput extends React.Component {
   }
 
   render() {
-    var options = this.props.options.map(opt => {
+    const options = this.props.options.map(opt => {
       return { key: opt.value, text: opt.text };
     });
-    console.log("options", this.props.options);
+
+    const defaultKey = this.props.options.filter(opt => opt.default);
+
     return (
       <div className="select">
         <Dropdown
@@ -39,6 +41,10 @@ class SelectInput extends React.Component {
           onBlur={this.props.onBlur.bind(null, this.state.value)}
           options={options}
           label={this.props.label}
+          defaultSelectedKey={
+            defaultKey.length > 0 ? defaultKey[0].value : ""
+          }
+          placeholder="Please select"
         />
       </div>
     );
