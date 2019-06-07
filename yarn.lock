@@ -1265,6 +1265,57 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
+"@types/d3-array@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@types/d3-array/-/d3-array-1.2.1.tgz#e489605208d46a1c9d980d2e5772fa9c75d9ec65"
+  integrity sha512-YBaAfimGdWE4nDuoGVKsH89/dkz2hWZ0i8qC+xxqmqi+XJ/aXiRF0jPtzXmN7VdkpVjy1xuDmM5/m1FNuB6VWA==
+
+"@types/d3-axis@1.0.10":
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/@types/d3-axis/-/d3-axis-1.0.10.tgz#41d6b3ea9032f9531ec0d71d83bcf49294511210"
+  integrity sha512-5YF0wfdQMPKw01VAAupLIlg/T4pn5M3/vL9u0KZjiemnVnnKBEWE24na4X1iW+TfZiYJ8j+BgK2KFYnAAT54Ug==
+  dependencies:
+    "@types/d3-selection" "*"
+
+"@types/d3-path@*":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@types/d3-path/-/d3-path-1.0.8.tgz#48e6945a8ff43ee0a1ce85c8cfa2337de85c7c79"
+  integrity sha512-AZGHWslq/oApTAHu9+yH/Bnk63y9oFOMROtqPAtxl5uB6qm1x2lueWdVEjsjjV3Qc2+QfuzKIwIR5MvVBakfzA==
+
+"@types/d3-scale@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@types/d3-scale/-/d3-scale-2.0.0.tgz#d40f2ff137f4fe9b13b45c5a8e14f39edd498dcf"
+  integrity sha512-fFLSdP3p9qQQ3W6ouO3GBI4Qg94CSykTWVc61U8SI1V62dfBWtOigBj5voxDcOniwh9MjKzTHldMSsGJ5qAFpA==
+  dependencies:
+    "@types/d3-time" "*"
+
+"@types/d3-selection@*":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@types/d3-selection/-/d3-selection-1.4.1.tgz#fa1f8710a6b5d7cfe5c6caa61d161be7cae4a022"
+  integrity sha512-bv8IfFYo/xG6dxri9OwDnK3yCagYPeRIjTlrcdYJSx+FDWlCeBDepIHUpqROmhPtZ53jyna0aUajZRk0I3rXNA==
+
+"@types/d3-selection@1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@types/d3-selection/-/d3-selection-1.3.0.tgz#acede3d22c18ec085cc401d4fdab9f040e1a73c7"
+  integrity sha512-1SJhi3kTk/SHHIE6XkHuHU2REYkbSOjkQuo3HT71FOTs8/tjeGcvtXMsX4N3kU1UE1nVG+A5pg7TSjuJ4zUN3A==
+
+"@types/d3-shape@^1.2.3":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@types/d3-shape/-/d3-shape-1.3.1.tgz#1b4f92b7efd7306fe2474dc6ee94c0f0ed2e6ab6"
+  integrity sha512-usqdvUvPJ7AJNwpd2drOzRKs1ELie53p2m2GnPKr076/ADM579jVTJ5dPsoZ5E/CMNWk8lvPWYQSvilpp6jjwg==
+  dependencies:
+    "@types/d3-path" "*"
+
+"@types/d3-time-format@^2.1.0":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@types/d3-time-format/-/d3-time-format-2.1.1.tgz#dd2c79ec4575f1355484ab6b10407824668eba42"
+  integrity sha512-tJSyXta8ZyJ52wDDHA96JEsvkbL6jl7wowGmuf45+fAkj5Y+SQOnz0N7/H68OWmPshPsAaWMQh+GAws44IzH3g==
+
+"@types/d3-time@*":
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/@types/d3-time/-/d3-time-1.0.10.tgz#d338c7feac93a98a32aac875d1100f92c7b61f4f"
+  integrity sha512-aKf62rRQafDQmSiv1NylKhIMmznsjRN+MnXRXTqHoqm0U/UZzVpdrtRnSIfdiLS616OuC1soYeX1dBg2n1u8Xw==
+
 "@types/invariant@^2.2.29":
   version "2.2.29"
   resolved "https://registry.yarnpkg.com/@types/invariant/-/invariant-2.2.29.tgz#aa845204cd0a289f65d47e0de63a6a815e30cc66"
@@ -1401,6 +1452,72 @@
     lodash.unescape "4.0.1"
     semver "5.5.0"
 
+"@uifabric/azure-themes@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@uifabric/azure-themes/-/azure-themes-6.0.1.tgz#94fd2137ba53da1b735f7da0e6335d8d3fe08a0a"
+  integrity sha512-rHZVuodx3P5vMhD1ce+RkA/Cr7b2ky8o8McDqU1fMyYoV/xVahacC4HahgSUkniNdKoFEI+fum2AJQt/nTOSTw==
+  dependencies:
+    "@uifabric/merge-styles" "^6.17.4"
+    "@uifabric/set-version" "^1.1.3"
+    office-ui-fabric-react "^6.185.0"
+    tslib "^1.7.1"
+
+"@uifabric/charting@^0.30.0":
+  version "0.30.1"
+  resolved "https://registry.yarnpkg.com/@uifabric/charting/-/charting-0.30.1.tgz#38c51a61e52f765385b3c3597be2618cf633a2e9"
+  integrity sha512-A9+RbD57CgWXDdxs0P646WLspHYNW2CI51nmy+UG8d4+7uRtqTop/j3YCt3gyMSRvThdjlVFyGnhVNXWtfv6NQ==
+  dependencies:
+    "@microsoft/load-themed-styles" "^1.7.13"
+    "@types/d3-array" "1.2.1"
+    "@types/d3-axis" "1.0.10"
+    "@types/d3-scale" "2.0.0"
+    "@types/d3-selection" "1.3.0"
+    "@types/d3-shape" "^1.2.3"
+    "@types/d3-time-format" "^2.1.0"
+    "@uifabric/icons" "^6.5.2"
+    "@uifabric/set-version" "^1.1.3"
+    d3-array "1.2.1"
+    d3-axis "1.0.8"
+    d3-scale "2.0.0"
+    d3-selection "1.3.0"
+    d3-shape "^1.2.0"
+    d3-time-format "^2.1.3"
+    office-ui-fabric-react "^6.189.2"
+    prop-types "^15.5.10"
+    tslib "^1.7.1"
+
+"@uifabric/experiments@^6.78.5":
+  version "6.78.5"
+  resolved "https://registry.yarnpkg.com/@uifabric/experiments/-/experiments-6.78.5.tgz#112d2f44d8db6a9437571bbecd04f931a487bd74"
+  integrity sha512-NpCxWKfvfW3yqcn7FKheFbaE7nLukel2An8q4cqHfYrzlCV++Xh02rcSubN0y6Ba8ofvja5tRle22ix2N24imA==
+  dependencies:
+    "@microsoft/load-themed-styles" "^1.7.13"
+    "@uifabric/azure-themes" "^6.0.1"
+    "@uifabric/charting" "^0.30.0"
+    "@uifabric/file-type-icons" "^6.4.10"
+    "@uifabric/fluent-theme" "^0.16.10"
+    "@uifabric/foundation" "^0.7.6"
+    "@uifabric/icons" "^6.5.2"
+    "@uifabric/merge-styles" "^6.17.4"
+    "@uifabric/set-version" "^1.1.3"
+    "@uifabric/styling" "^6.47.6"
+    "@uifabric/theme-samples" "^0.1.6"
+    "@uifabric/utilities" "^6.39.3"
+    "@uifabric/variants" "^6.14.2"
+    deep-assign "^2.0.0"
+    office-ui-fabric-react "^6.188.2"
+    prop-types "^15.5.10"
+    tslib "^1.7.1"
+
+"@uifabric/file-type-icons@^6.4.10":
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/@uifabric/file-type-icons/-/file-type-icons-6.5.0.tgz#f9816dd67d0288baa48d497dbef522c4f44cce01"
+  integrity sha512-BAsDIuNqGCoT3boGlwiG8A2htW1jZ+nz+RX6JxtPKr3ifKu0iUUXI52svEHg/Qd1Nieu5u6FYa9mdopMflUXdw==
+  dependencies:
+    "@uifabric/set-version" "^1.1.3"
+    "@uifabric/styling" "^6.48.0"
+    tslib "^1.7.1"
+
 "@uifabric/fluent-theme@^0.16.10":
   version "0.16.10"
   resolved "https://registry.yarnpkg.com/@uifabric/fluent-theme/-/fluent-theme-0.16.10.tgz#1e6854b161bbc523f798a0abe6214af708a276c8"
@@ -1475,6 +1592,16 @@
     "@uifabric/merge-styles" "^6.18.0"
     "@uifabric/set-version" "^1.1.3"
     "@uifabric/utilities" "^6.40.0"
+    tslib "^1.7.1"
+
+"@uifabric/theme-samples@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@uifabric/theme-samples/-/theme-samples-0.1.6.tgz#8eb30f3d4a2941d46eae8ef73463f3921a991c02"
+  integrity sha512-UBK2cY0Y8vpt7/gKxcaJjsXkfCI8WsPeJmxVBlpt3xN3cugci5y1Fhs+w/FFVHSiRqfCJOLtgWN+VVS7m9HDcg==
+  dependencies:
+    "@uifabric/set-version" "^1.1.3"
+    "@uifabric/variants" "^6.14.2"
+    office-ui-fabric-react "^6.181.1"
     tslib "^1.7.1"
 
 "@uifabric/utilities@^6.38.3", "@uifabric/utilities@^6.39.3":
@@ -3208,6 +3335,84 @@ cyclist@~0.2.2:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
 
+d3-array@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/d3-array/-/d3-array-1.2.1.tgz#d1ca33de2f6ac31efadb8e050a021d7e2396d5dc"
+  integrity sha512-CyINJQ0SOUHojDdFDH4JEM0552vCR1utGyLHegJHyYH0JyCpSeTPxi4OBqHMA2jJZq4NH782LtaJWBImqI/HBw==
+
+d3-array@^1.2.0:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/d3-array/-/d3-array-1.2.4.tgz#635ce4d5eea759f6f605863dbcfc30edc737f71f"
+  integrity sha512-KHW6M86R+FUPYGb3R5XiYjXPq7VzwxZ22buHhAEVG5ztoEcZZMLov530mmccaqA1GghZArjQV46fuc8kUqhhHw==
+
+d3-axis@1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/d3-axis/-/d3-axis-1.0.8.tgz#31a705a0b535e65759de14173a31933137f18efa"
+  integrity sha1-MacFoLU15ldZ3hQXOjGTMTfxjvo=
+
+d3-collection@1:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/d3-collection/-/d3-collection-1.0.7.tgz#349bd2aa9977db071091c13144d5e4f16b5b310e"
+  integrity sha512-ii0/r5f4sjKNTfh84Di+DpztYwqKhEyUlKoPrzUFfeSkWxjW49xU2QzO9qrPrNkpdI0XJkfzvmTu8V2Zylln6A==
+
+d3-color@1:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/d3-color/-/d3-color-1.2.3.tgz#6c67bb2af6df3cc8d79efcc4d3a3e83e28c8048f"
+  integrity sha512-x37qq3ChOTLd26hnps36lexMRhNXEtVxZ4B25rL0DVdDsGQIJGB18S7y9XDwlDD6MD/ZBzITCf4JjGMM10TZkw==
+
+d3-format@1:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/d3-format/-/d3-format-1.3.2.tgz#6a96b5e31bcb98122a30863f7d92365c00603562"
+  integrity sha512-Z18Dprj96ExragQ0DeGi+SYPQ7pPfRMtUXtsg/ChVIKNBCzjO8XYJvRTC1usblx52lqge56V5ect+frYTQc8WQ==
+
+d3-interpolate@1:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/d3-interpolate/-/d3-interpolate-1.3.2.tgz#417d3ebdeb4bc4efcc8fd4361c55e4040211fd68"
+  integrity sha512-NlNKGopqaz9qM1PXh9gBF1KSCVh+jSFErrSlD/4hybwoNX/gt1d8CDbDW+3i+5UOHhjC6s6nMvRxcuoMVNgL2w==
+  dependencies:
+    d3-color "1"
+
+d3-path@1:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/d3-path/-/d3-path-1.0.7.tgz#8de7cd693a75ac0b5480d3abaccd94793e58aae8"
+  integrity sha512-q0cW1RpvA5c5ma2rch62mX8AYaiLX0+bdaSM2wxSU9tXjU4DNvkx9qiUvjkuWCj3p22UO/hlPivujqMiR9PDzA==
+
+d3-scale@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/d3-scale/-/d3-scale-2.0.0.tgz#fd8ac78381bc2ed741d8c71770437a5e0549a5a5"
+  integrity sha512-Sa2Ny6CoJT7x6dozxPnvUQT61epGWsgppFvnNl8eJEzfJBG0iDBBTJAtz2JKem7Mb+NevnaZiDiIDHsuWkv6vg==
+  dependencies:
+    d3-array "^1.2.0"
+    d3-collection "1"
+    d3-format "1"
+    d3-interpolate "1"
+    d3-time "1"
+    d3-time-format "2"
+
+d3-selection@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/d3-selection/-/d3-selection-1.3.0.tgz#d53772382d3dc4f7507bfb28bcd2d6aed2a0ad6d"
+  integrity sha512-qgpUOg9tl5CirdqESUAu0t9MU/t3O9klYfGfyKsXEmhyxyzLpzpeh08gaxBUTQw1uXIOkr/30Ut2YRjSSxlmHA==
+
+d3-shape@^1.2.0:
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/d3-shape/-/d3-shape-1.3.5.tgz#e81aea5940f59f0a79cfccac012232a8987c6033"
+  integrity sha512-VKazVR3phgD+MUCldapHD7P9kcrvPcexeX/PkMJmkUov4JM8IxsSg1DvbYoYich9AtdTsa5nNk2++ImPiDiSxg==
+  dependencies:
+    d3-path "1"
+
+d3-time-format@2, d3-time-format@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/d3-time-format/-/d3-time-format-2.1.3.tgz#ae06f8e0126a9d60d6364eac5b1533ae1bac826b"
+  integrity sha512-6k0a2rZryzGm5Ihx+aFMuO1GgelgIz+7HhB4PH4OEndD5q2zGn1mDfRdNrulspOfR6JXkb2sThhDK41CSK85QA==
+  dependencies:
+    d3-time "1"
+
+d3-time@1:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/d3-time/-/d3-time-1.0.11.tgz#1d831a3e25cd189eb256c17770a666368762bbce"
+  integrity sha512-Z3wpvhPLW4vEScGeIMUckDW7+3hWKOQfAWg/U7PlWBnQmeKQ00gCUsTtWSYulrKNA7ta8hJ+xXc6MHrMuITwEw==
+
 damerau-levenshtein@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/damerau-levenshtein/-/damerau-levenshtein-1.0.5.tgz#780cf7144eb2e8dbd1c3bb83ae31100ccc31a414"
@@ -3271,6 +3476,13 @@ decode-uri-component@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
   integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
+
+deep-assign@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/deep-assign/-/deep-assign-2.0.0.tgz#ebe06b1f07f08dae597620e3dd1622f371a1c572"
+  integrity sha1-6+BrHwfwja5ZdiDj3RYi83GhxXI=
+  dependencies:
+    is-obj "^1.0.0"
 
 deep-equal@^1.0.1:
   version "1.0.1"
@@ -6786,6 +6998,21 @@ office-ui-fabric-react@^6.181.1, office-ui-fabric-react@^6.184.0:
     "@uifabric/set-version" "^1.1.3"
     "@uifabric/styling" "^6.47.6"
     "@uifabric/utilities" "^6.39.3"
+    prop-types "^15.5.10"
+    tslib "^1.7.1"
+
+office-ui-fabric-react@^6.185.0, office-ui-fabric-react@^6.188.2, office-ui-fabric-react@^6.189.2:
+  version "6.189.2"
+  resolved "https://registry.yarnpkg.com/office-ui-fabric-react/-/office-ui-fabric-react-6.189.2.tgz#e2d12a2c7847be8524ce8be95585987fd3de18bb"
+  integrity sha512-1Y111Ip78u7aCbmyRTucRldY4lYwRPkxhFL+y1rgQC4TivB2FmoHN6eSA1nAA59Ix4k2etM0UCzh7MdC1SbP5Q==
+  dependencies:
+    "@microsoft/load-themed-styles" "^1.7.13"
+    "@uifabric/foundation" "^0.7.6"
+    "@uifabric/icons" "^6.5.2"
+    "@uifabric/merge-styles" "^6.18.0"
+    "@uifabric/set-version" "^1.1.3"
+    "@uifabric/styling" "^6.48.0"
+    "@uifabric/utilities" "^6.40.1"
     prop-types "^15.5.10"
     tslib "^1.7.1"
 

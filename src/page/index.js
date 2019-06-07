@@ -5,7 +5,7 @@ import posed, { PoseGroup } from "react-pose";
 import { withTracker } from "../hocs/withTracker";
 
 import Home from "./Home";
-//import Result from "./Result";
+import Result from "./Result";
 
 const RoutesContainer = posed.div({
   enter: { opacity: 1, delay: 300 },
@@ -19,9 +19,11 @@ const Page = () => (
         <RoutesContainer key={location.pathname}>
           <Switch location={location} key="switch">
             <Route path="/" exact component={withTracker(Home)} key="home" />
-            {
-              // <Route path="/result" component={Result} key="result" />
-            }
+            <Route
+              path="/result"
+              component={withTracker(Result)}
+              key="result"
+            />
           </Switch>
         </RoutesContainer>
       </PoseGroup>

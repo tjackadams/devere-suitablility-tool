@@ -56,7 +56,7 @@ const styles = mergeStyleSets({
   }
 });
 
-const Home = () => {
+const Home = props => {
   const { state, dispatch } = useContext(StoreContext);
 
   return (
@@ -95,7 +95,7 @@ const Home = () => {
                 });
               }}
               onSubmit={(questionAnswers, action) => {
-                this.props.history.push({
+                props.history.push({
                   pathname: "/result",
                   state: { answers: questionAnswers }
                 });

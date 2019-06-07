@@ -1,29 +1,29 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import { Dropdown } from "office-ui-fabric-react/lib/Dropdown";
 
-class SelectInput extends React.Component {
+class SelectInput extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.select = React.createRef();
-
     this.state = {
-      value: this.props.value
+      selectedItem: undefined
     };
   }
 
-  handleChange(e) {
+  onChange = (event, item) => {
     this.setState(
       {
-        value: e.target.value
+        selectedItem: item
       },
-      this.props.onChange.bind(null, e.target.value)
+      () => this.props.onChange(item.key)
     );
-  }
+  };
 
   render() {
+    const { selectedItem } = this.state;
+
     const options = this.props.options.map(opt => {
-      return { key: opt.value, text: opt.text };
+      return { key: opt.value, text: opt.text, selected: opt.default };
     });
 
     const defaultKey = this.props.options.filter(opt => opt.default);
@@ -31,35 +31,22 @@ class SelectInput extends React.Component {
     return (
       <div className="select">
         <Dropdown
-          name={this.props.name}
-          id={this.props.id}
-          className={this.props.classes.select}
-          value={this.state.value}
-          ref={this.select}
-          required={this.props.required ? "required" : undefined}
-          onChange={this.handleChange.bind(this)}
-          onBlur={this.props.onBlur.bind(null, this.state.value)}
-          options={options}
           label={this.props.label}
-          defaultSelectedKey={
-            defaultKey.length > 0 ? defaultKey[0].value : ""
+          selectedKey={
+            selectedItem
+              ? selectedItem.key
+              : defaultKey.length > 0
+              ? defaultKey[0].value
+              : undefined
           }
+          onChange={this.onChange}
           placeholder="Please select"
+          options={options}
+          required={this.props.required}
+          className={this.props.classes.select}
         />
       </div>
     );
-  }
-
-  componentDidMount() {
-    /*
-     * Selects automatically pick the first item, so
-     * make sure we set it.
-     */
-    this.handleChange({
-      target: {
-        value: this.select.current.value
-      }
-    });
   }
 }
 

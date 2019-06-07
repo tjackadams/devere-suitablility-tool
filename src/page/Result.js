@@ -1,13 +1,11 @@
-import React, { PureComponent } from "react";
+import React from "react";
 
-import { ScoreCard } from "../components/ScoreCard";
+import { ResultsContainer } from "../containers";
 
-class Result extends PureComponent {
-  render() {
-    const answers = this.props.location.state.answers;
-
-    return <ScoreCard answers={answers} />;
-  }
-}
+const Result = props => {
+  const answers = props.location.state.answers;
+  console.log("result");
+  return <ResultsContainer answers={answers} />;
+};
 
 export default Result;
