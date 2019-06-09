@@ -3,9 +3,12 @@ import PropTypes from "prop-types";
 import {
   mergeStyleSets,
   DefaultPalette,
+  Separator,
   Stack,
   Text
 } from "office-ui-fabric-react";
+
+import ScoreCardItem from "./ScoreCardItem";
 
 const styles = mergeStyleSets({
   container: {
@@ -27,7 +30,10 @@ const styles = mergeStyleSets({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    padding: "20px"
+    padding: "20px",
+    borderWidth: "1px",
+    borderStyle: "solid",
+    borderColor: "rgb(138, 136, 134)"
   },
 
   contentItem: {
@@ -48,6 +54,7 @@ const styles = mergeStyleSets({
 });
 
 const ScoreCard = props => {
+  console.log("results", props.results);
   return (
     <Fragment>
       <div style={{ height: "20px" }}> </div>
@@ -58,7 +65,18 @@ const ScoreCard = props => {
       >
         <Stack padding={10} maxWidth={960} className={styles.stackContainer}>
           <Stack.Item className={styles.titleItem}>{props.header}</Stack.Item>
-          <Stack.Item className={styles.contentItem} />
+          <Stack.Item className={styles.contentItem}>
+            <div className="ms-Grid">
+              {props.results.map(r => (
+                <ScoreCardItem
+                  key={r.id}
+                  question={r.question}
+                  answer={r.answer}
+                  reason={r.reason}
+                />
+              ))}
+            </div>
+          </Stack.Item>
         </Stack>
       </Stack>
     </Fragment>

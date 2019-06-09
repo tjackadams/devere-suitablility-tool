@@ -1,5 +1,8 @@
-import React from "react";
-import { DefaultButton, PrimaryButton } from "office-ui-fabric-react";
+let React = require("react");
+let {
+  DefaultButton,
+  PrimaryButton
+} = require("office-ui-fabric-react/lib-commonjs/Button");
 
 class Button extends React.Component {
   handleClick = e => {
@@ -9,18 +12,15 @@ class Button extends React.Component {
   };
 
   render() {
-    if (this.props.primary) {
-      return (
-        <PrimaryButton
-          onClick={this.handleClick}
-          className={this.props.className}
-          style={{ backgroundColor: "#003366" }}
-        >
-          {this.props.text}
-        </PrimaryButton>
-      );
-    }
-    return (
+    return this.props.primary === true ? (
+      <PrimaryButton
+        onClick={this.handleClick}
+        className={this.props.className}
+        style={{ backgroundColor: "#003366" }}
+      >
+        {this.props.text}
+      </PrimaryButton>
+    ) : (
       <DefaultButton
         onClick={this.handleClick}
         className={this.props.className}
@@ -37,4 +37,4 @@ Button.defaultProps = {
   onClick: () => {}
 };
 
-export default Button;
+module.exports = Button;

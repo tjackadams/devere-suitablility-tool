@@ -47,4 +47,4 @@ PasswordInput.defaultProps = {
   onKeyDown   : () => {}
 };
 
-export default PasswordInput;
+module.exports = PasswordInput;

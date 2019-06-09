@@ -47,4 +47,4 @@ EmailInput.defaultProps = {
   onKeyDown   : () => {}
 };
 
-export default EmailInput;
+module.exports = EmailInput;

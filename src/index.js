@@ -6,6 +6,7 @@ import ReactGA from "react-ga";
 import AppKernel from "./app";
 import * as serviceWorker from "./serviceWorker";
 
+import "./fabric.css";
 import "./style.css";
 
 const Page = lazy(() => import("./page"));

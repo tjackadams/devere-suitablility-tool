@@ -1,10 +1,5 @@
-import React, { Fragment, useState, useEffect } from "react";
-import {
-  mergeStyleSets,
-  DefaultPalette,
-  Icon,
-  Text
-} from "office-ui-fabric-react";
+import React, { useState, useEffect } from "react";
+import { mergeStyleSets, Icon, Stack, Text } from "office-ui-fabric-react";
 
 import { ScoreCard } from "../components/ScoreCard";
 
@@ -54,20 +49,43 @@ const styles = mergeStyleSets({
   },
 
   title: {
-    color: DefaultPalette.white
+    // color: DefaultPalette.white
+  },
+  icon: {
+    fontSize: "3rem",
+    marginRight: "30px",
+    top: "0.9rem",
+    position: "relative"
   }
 });
 
 const ResultsContainer = props => {
-  const [results, setResults] = useState("results");
+  const [results, setResults] = useState([]);
   const [header, setHeader] = useState("header");
 
   useEffect(() => {
-    debugger;
-    const errors = getAnswers(props.answers, State.Error);
+    const errors = getAnswers({ answers: props.answers, state: State.Error });
     if (errors.length > 0) {
-      setResults([...errors, ...getAnswers(props.answers, State.Warning)]);
-      setHeader(getHeader(State.Error));
+      const warnings = getAnswers({
+        answers: props.answers,
+        state: State.Warning
+      });
+      setResults([...errors], [...warnings]);
+      setHeader(getHeader({ state: State.Error }));
+    } else {
+      const warnings = getAnswers({
+        answers: props.answers,
+        state: State.Warning
+      });
+      if (warnings.length > 0) {
+        setResults([...warnings]);
+        setHeader(getHeader({ state: State.Warning }));
+      } else {
+        const ok = getAnswers({ answers: props.answers, state: State.OK });
+        console.log("returned results", ok);
+        setResults([...ok]);
+        setHeader(getHeader({ state: State.OK }));
+      }
     }
   }, [props]);
 
@@ -75,30 +93,139 @@ const ResultsContainer = props => {
     switch (state) {
       case State.Error:
         return (
-          <Fragment>
-            <Icon iconName="Unknown" />
-            <Text variant="xxLarge" className={styles.title}>
-              Limited Lenders Available
-            </Text>
-          </Fragment>
+          <Stack
+            style={{
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              verticalAlign: "top",
+              textAlign: "center"
+            }}
+            tokens={{ childrenGap: 20 }}
+          >
+            <Stack.Item
+              style={{
+                width: "100%",
+                display: "flex",
+                textAlign: "center"
+              }}
+            >
+              <Icon
+                iconName="Unknown"
+                className={styles.icon}
+                style={{ color: "#a80000" }}
+              />
+              <Text variant="xxLarge" className={styles.title}>
+                Limited Lenders Available
+              </Text>
+            </Stack.Item>
+            <Stack.Item
+              style={{
+                width: "100%",
+                display: "flex",
+                textAlign: "center"
+              }}
+            >
+              <Text block variant="smallPlus">
+                Please contact the deVere Mortgage Team on +44 3333449510, or
+                alternatively email us to book in for a free telephone
+                consultation
+                <br /> at mortgages@devere-mortgages.co.uk
+              </Text>
+            </Stack.Item>
+          </Stack>
         );
       case State.Warning:
         return (
-          <Fragment>
-            <Icon iconName="Warning" />
-            <Text variant="xxLarge" className={styles.title}>
-              Limited Lenders Available
-            </Text>
-          </Fragment>
+          <Stack
+            style={{
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              verticalAlign: "top",
+              textAlign: "center"
+            }}
+            tokens={{ childrenGap: 20 }}
+          >
+            <Stack.Item
+              style={{
+                width: "100%",
+                display: "flex",
+                textAlign: "center"
+              }}
+            >
+              <Icon
+                iconName="Warning"
+                className={styles.icon}
+                style={{ color: "#797673" }}
+              />
+              <Text variant="xxLarge" className={styles.title}>
+                Limited Lenders Available
+              </Text>
+            </Stack.Item>
+            <Stack.Item
+              style={{
+                width: "100%",
+                display: "flex",
+                textAlign: "center"
+              }}
+            >
+              <Text block variant="smallPlus">
+                Please contact the deVere Mortgage Team on +44 3333449510, or
+                alternatively email us to book in for a free telephone
+                consultation
+                <br /> at mortgages@devere-mortgages.co.uk
+              </Text>
+            </Stack.Item>
+          </Stack>
         );
       case State.OK:
         return (
-          <Fragment>
-            <Icon iconName="CompletedSolid" />
-            <Text variant="xxLarge" className={styles.title}>
-              deVere UK Mortgages
-            </Text>
-          </Fragment>
+          <Stack
+            style={{
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              verticalAlign: "top",
+              textAlign: "center"
+            }}
+            tokens={{ childrenGap: 20 }}
+          >
+            <Stack.Item
+              style={{
+                width: "100%",
+                display: "flex",
+                textAlign: "center"
+              }}
+            >
+              <Icon
+                iconName="CompletedSolid"
+                className={styles.icon}
+                style={{ color: "#107c10" }}
+              />
+              <Text variant="xxLarge" className={styles.title}>
+                Strong Case to Proceed
+              </Text>
+            </Stack.Item>
+            <Stack.Item
+              style={{
+                width: "100%",
+                display: "flex",
+                textAlign: "center"
+              }}
+            >
+              <Text variant="smallPlus">
+                You have a strong case to obtain a UK Ex-pat mortgage, but if
+                you would like to discuss further please contact the deVere
+                Mortgage Team on +44 3333449510, or alternatively email us to
+                book in for a free telephone consultation at
+                mortgages@devere-mortgages.co.uk
+              </Text>
+            </Stack.Item>
+          </Stack>
         );
       default:
         throw new Error("");
@@ -152,7 +279,11 @@ const ResultsContainer = props => {
 
     return myResult;
   };
+  console.log("pre results", results);
 
+  if (results === undefined) {
+    return null;
+  }
   return <ScoreCard results={results} header={header} />;
 };
 

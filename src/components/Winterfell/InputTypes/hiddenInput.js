@@ -25,4 +25,4 @@ HiddenInput.defaultProps = {
   value : ''
 };
 
-export default HiddenInput;
+module.exports = HiddenInput;

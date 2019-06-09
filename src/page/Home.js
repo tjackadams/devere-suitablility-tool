@@ -3,17 +3,19 @@ import PropTypes from "prop-types";
 import {
   mergeStyleSets,
   DefaultPalette,
+  Dropdown,
   Stack,
   Text
 } from "office-ui-fabric-react";
 
-import Winterfell from "../components/Winterfell";
 import schema from "../schema.js";
 
 import Footer from "../components/Footer";
 import { ProgressBar } from "../components/Progress";
 import { StoreContext } from "../context/StoreContext";
 import { types } from "../context/reducers";
+
+import * as Winterfell from "../components/Winterfell/index";
 
 const styles = mergeStyleSets({
   container: {
@@ -56,6 +58,8 @@ const styles = mergeStyleSets({
   }
 });
 
+Winterfell.addInputType("myDropdown", Dropdown);
+
 const Home = props => {
   const { state, dispatch } = useContext(StoreContext);
 
@@ -69,7 +73,6 @@ const Home = props => {
       ) : (
         <div style={{ height: "20px" }}> </div>
       )}
-
       <Stack
         horizontalAlign="center"
         verticalAlign="center"
@@ -78,7 +81,7 @@ const Home = props => {
         <Stack padding={10} maxWidth={960} className={styles.stackContainer}>
           <Stack.Item className={styles.titleItem}>
             <Text variant="xxLarge" className={styles.title}>
-              deVere UK Mortgages
+              deVere UK Mortgages for Overseas Clients
             </Text>
           </Stack.Item>
           <Stack.Item className={styles.contentItem}>
@@ -89,15 +92,18 @@ const Home = props => {
                 dispatch({
                   type: types.SET_PROGRESS,
                   payload: {
-                    currentValue: update.questionsCurrentCount,
-                    total: update.questionsTotalCount
+                    currentValue: update.currentCount,
+                    total: update.totalCount
                   }
                 });
               }}
               onSubmit={(questionAnswers, action) => {
+                dispatch({
+                  type: types.SET_ANSWERS,
+                  payload: questionAnswers
+                });
                 props.history.push({
-                  pathname: "/result",
-                  state: { answers: questionAnswers }
+                  pathname: "/result"
                 });
               }}
               disableSubmit

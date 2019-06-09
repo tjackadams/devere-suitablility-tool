@@ -9,8 +9,8 @@ const schema = {
     backButton: "btn btn-light pull-left",
     errorMessage: "alert alert-danger",
     buttonBar: "button-bar",
-    select: "select-text",
-    label: "question-label"
+    //   select: "ms-Dropdown-select",
+    label: "ms-Label"
   },
   formPanels: [
     {

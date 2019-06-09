@@ -45,4 +45,4 @@ TextareaInput.defaultProps = {
   onBlur      : () => {}
 };
 
-export default TextareaInput;
+module.exports = TextareaInput;

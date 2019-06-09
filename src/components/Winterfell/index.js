@@ -1,9 +1,8 @@
-import React from "react";
-import _ from "lodash";
+var React = require("react");
+var ReactDOM = require("react-dom");
+var _ = require("lodash").noConflict();
 
-import * as InputTypes from "./InputTypes";
-import * as Validation from "./lib/Validation";
-import QuestionPanel from "./QuestionPanel";
+var QuestionPanel = require("./questionPanel");
 
 class Winterfell extends React.Component {
   constructor(props) {
@@ -13,7 +12,7 @@ class Winterfell extends React.Component {
 
     this.panelHistory = [];
 
-    const schema = _.extend(
+    var schema = _.extend(
       {
         classes: {},
         formPanels: [],
@@ -25,14 +24,14 @@ class Winterfell extends React.Component {
 
     schema.formPanels = schema.formPanels.sort((a, b) => a.index > b.index);
 
-    const panelId =
+    var panelId =
       typeof props.panelId !== "undefined"
         ? props.panelId
         : schema.formPanels.length > 0
         ? schema.formPanels[0].panelId
         : undefined;
 
-    const currentPanel =
+    var currentPanel =
       typeof schema !== "undefined" &&
       typeof schema.formPanels !== "undefined" &&
       typeof panelId !== "undefined"
@@ -45,21 +44,15 @@ class Winterfell extends React.Component {
       );
     }
 
-    const add = (a, b) => a + b;
-    const questionsTotalCount = Object.keys(schema.questionSets)
-      .map(qs => {
-        return schema.questionSets[qs].questions.length;
-      })
-      .reduce(add);
+    const totalQuestions = this.getQuestionTotal(schema);
 
     this.state = {
       schema: schema,
       currentPanel: currentPanel,
       action: props.action,
       questionAnswers: props.questionAnswers,
-      questionsCurrentCount: 0,
-      questionsTotalCount: questionsTotalCount,
-      preventHandleChange: true
+      currentQuestion: 0,
+      totalQuestions: totalQuestions
     };
   }
 
@@ -71,40 +64,38 @@ class Winterfell extends React.Component {
     });
   }
 
-  handleAnswerChange = (questionId, questionAnswer) => {
-    const questionAnswers = _.chain(this.state.questionAnswers)
+  getQuestionTotal = schema => {
+    const add = (a, b) => a + b;
+    return Object.keys(schema.questionSets)
+      .map(qs => {
+        return schema.questionSets[qs].questions.length;
+      })
+      .reduce(add);
+  };
+
+  handleAnswerChange(questionId, questionAnswer) {
+    var questionAnswers = _.chain(this.state.questionAnswers)
       .set(questionId, questionAnswer)
       .value();
 
-    if (this.state.preventHandleChange) {
-      return;
-    }
-
-    const questionsCurrentCount = Object.keys(this.state.questionAnswers)
-      .length;
+    const currentQuestions = Object.keys(this.state.questionAnswers).length;
 
     this.setState(
       state => {
-        const newCount = Math.min(
-          state.questionsCurrentCount,
-          questionsCurrentCount
-        );
         return {
           questionAnswers: questionAnswers,
-          questionsCurrentCount: newCount + 1
+          currentQuestion: currentQuestions
         };
       },
-      () => {
-        this.props.onUpdate({
-          questionAnswer,
-          questionsCurrentCount: this.state.questionsCurrentCount,
-          questionsTotalCount: this.state.questionsTotalCount
-        });
-      }
+      this.props.onUpdate.bind(null, {
+        questionAnswers,
+        currentCount: this.state.currentQuestion,
+        totalCount: this.state.totalQuestions
+      })
     );
-  };
+  }
 
-  handleSwitchPanel(panelId, preventHistory, preventHandleChange = false) {
+  handleSwitchPanel(panelId, preventHistory) {
     var panel = _.find(this.props.schema.formPanels, {
       panelId: panelId
     });
@@ -122,42 +113,22 @@ class Winterfell extends React.Component {
     }
 
     this.setState(
-      state => {
-        return {
-          preventHandleChange: preventHandleChange,
-          currentPanel: panel
-        };
+      {
+        currentPanel: panel
       },
-      () => {
-        this.props.onSwitchPanel(panel);
-      }
+      this.props.onSwitchPanel.bind(null, panel)
     );
   }
 
-  handleBackButtonClick = () => {
+  handleBackButtonClick() {
     this.panelHistory.pop();
 
     this.handleSwitchPanel.call(
       this,
       this.panelHistory[this.panelHistory.length - 1],
-      true,
       true
     );
-    this.setState(
-      state => {
-        return {
-          questionsCurrentCount: state.questionsCurrentCount - 1
-        };
-      },
-      () => {
-        this.props.onUpdate({
-          questionAnswer: undefined,
-          questionsCurrentCount: this.state.questionsCurrentCount,
-          questionsTotalCount: this.state.questionsTotalCount
-        });
-      }
-    );
-  };
+  }
 
   handleSubmit(action) {
     if (this.props.disableSubmit) {
@@ -229,9 +200,9 @@ class Winterfell extends React.Component {
   }
 }
 
-Winterfell.inputTypes = InputTypes;
+Winterfell.inputTypes = require("./inputTypes");
 Winterfell.errorMessages = require("./lib/errors");
-Winterfell.validation = Validation;
+Winterfell.validation = require("./lib/validation");
 
 Winterfell.addInputType = Winterfell.inputTypes.addInputType;
 Winterfell.addInputTypes = Winterfell.inputTypes.addInputTypes;
@@ -257,4 +228,4 @@ Winterfell.defaultProps = {
   onRender: () => {}
 };
 
-export default Winterfell;
+module.exports = Winterfell;

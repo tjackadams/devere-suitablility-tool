@@ -40,4 +40,4 @@ FileInput.defaultProps = {
   onBlur    : () => {}
 };
 
-export default FileInput;
+module.exports = FileInput;

@@ -1,4 +1,4 @@
-const errorMessages = {
+var errorMessages = {
   /*
    * Fallback Error Message
    */
@@ -14,9 +14,9 @@ const errorMessages = {
           "Please enter a value with at least " +
           validationItem.params[0] +
           " character" +
-          // eslint-disable-next-line eqeqeq
           (validationItem.params[0] != 1 ? "s" : "")
         );
+        break;
 
       case 2:
         return (
@@ -26,10 +26,14 @@ const errorMessages = {
           validationItem.params[1] +
           " characters long"
         );
+        break;
 
       default:
         return errorMessages.default;
+        break;
     }
+
+    return "";
   },
 
   /*

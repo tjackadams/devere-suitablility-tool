@@ -1,15 +1,15 @@
-export default (template, params) => {
-  template = template || "";
-  params = params || {};
+module.exports = (template, params) => {
+  template = template || '';
+  params   = params || {};
 
   /*
    * Split up template in to array of characters
    */
-  var characters = template.split("");
+  var characters = template.split('');
 
-  var buffer = "";
-  var parsedTemplate = "";
-  var collecting = false;
+  var buffer         = '';
+  var parsedTemplate = '';
+  var collecting     = false;
 
   for (var i = 0; i < characters.length; i++) {
     var currentChar = characters[i];
@@ -20,8 +20,9 @@ export default (template, params) => {
      * append the charater to the
      * parsedTemplate and move on
      */
-    // eslint-disable-next-line eqeqeq
-    if (!collecting && currentChar != "{" && currentChar != "}") {
+    if (!collecting
+        && currentChar != '{'
+        && currentChar != '}') {
       parsedTemplate += currentChar;
       continue;
     }
@@ -30,8 +31,7 @@ export default (template, params) => {
      * If we're an opening brace,
      * start collecting for the buffer
      */
-    // eslint-disable-next-line eqeqeq
-    if (currentChar == "{") {
+    if (currentChar == '{') {
       collecting = true;
     }
 
@@ -40,8 +40,8 @@ export default (template, params) => {
      * we're not a brace of any sort then add
      * the character to the buffer
      */
-    // eslint-disable-next-line eqeqeq
-    if (currentChar != "{" && currentChar != "}") {
+    if (currentChar != '{'
+        && currentChar != '}') {
       buffer += currentChar;
     }
 
@@ -51,10 +51,9 @@ export default (template, params) => {
      * buffers name from the params object
      * and add it to the parsedTemplate
      */
-    // eslint-disable-next-line eqeqeq
-    if (currentChar == "}") {
-      var value = "";
-      if (typeof params[buffer] !== "undefined") {
+    if (currentChar == '}') {
+      var value = '';
+      if (typeof params[buffer] !== 'undefined') {
         value = params[buffer];
       }
 
@@ -65,7 +64,7 @@ export default (template, params) => {
        * the buffer to nothing
        */
       collecting = false;
-      buffer = "";
+      buffer = '';
     }
   }
 

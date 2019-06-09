@@ -1,13 +1,12 @@
-import React from "react";
-import QuestionSet from "./QuestionSet";
-import * as Validation from "./lib/Validation";
-import * as KeyCodez from "keycodez";
-import * as ErrorMessages from "./lib/errors";
-import _ from "lodash";
+var React = require("react");
+var _ = require("lodash").noConflict();
+var KeyCodez = require("keycodez");
 
-import Log from "../../Log";
+var Validation = require("./lib/validation");
+var ErrorMessages = require("./lib/errors");
 
-import Button from "./Button";
+var Button = require("./button");
+var QuestionSet = require("./questionSet");
 
 class QuestionPanel extends React.Component {
   constructor(props) {
@@ -18,7 +17,7 @@ class QuestionPanel extends React.Component {
     };
   }
 
-  handleAnswerValidate = (questionId, questionAnswer, validations) => {
+  handleAnswerValidate(questionId, questionAnswer, validations) {
     if (typeof validations === "undefined" || validations.length === 0) {
       return;
     }
@@ -52,13 +51,11 @@ class QuestionPanel extends React.Component {
     this.setState({
       validationErrors: validationErrors
     });
-  };
+  }
 
-  handleMainButtonClick = () => {
+  handleMainButtonClick() {
     var action = this.props.action.default;
     var conditions = this.props.action.conditions || [];
-
-    Log.info("props", this.props);
 
     /*
      * We need to get all the question sets for this panel.
@@ -102,7 +99,6 @@ class QuestionPanel extends React.Component {
      * Check our conditions and act upon them, or the default.
      */
     conditions.forEach(condition => {
-      Log.info("question answers", this.props.questionAnswers);
       var answer = this.props.questionAnswers[condition.questionId];
 
       action =
@@ -118,32 +114,26 @@ class QuestionPanel extends React.Component {
      * Decide which action to take depending on
      * the action decided upon.
      */
-    // eslint-disable-next-line default-case
     switch (action.action) {
       case "GOTO":
-        this.props.onSwitchPanel(action.target, false);
+        this.props.onSwitchPanel(action.target);
         break;
 
       case "SUBMIT":
         this.props.onSubmit(action.target);
         break;
     }
-  };
+  }
 
-  handleBackButtonClick = () => {
+  handleBackButtonClick() {
     if (this.props.panelHistory.length == 0) {
       return;
     }
 
     this.props.onPanelBack();
-  };
+  }
 
-  handleAnswerChange = (
-    questionId,
-    questionAnswer,
-    validations,
-    validateOn
-  ) => {
+  handleAnswerChange(questionId, questionAnswer, validations, validateOn) {
     this.props.onAnswerChange(questionId, questionAnswer);
 
     this.setState({
@@ -155,25 +145,20 @@ class QuestionPanel extends React.Component {
     if (validateOn === "change") {
       this.handleAnswerValidate(questionId, questionAnswer, validations);
     }
-  };
+  }
 
-  handleQuestionBlur = (
-    questionId,
-    questionAnswer,
-    validations,
-    validateOn
-  ) => {
+  handleQuestionBlur(questionId, questionAnswer, validations, validateOn) {
     if (validateOn === "blur") {
       this.handleAnswerValidate(questionId, questionAnswer, validations);
     }
-  };
+  }
 
-  handleInputKeyDown = e => {
+  handleInputKeyDown(e) {
     if (KeyCodez[e.keyCode] === "enter") {
       e.preventDefault();
       this.handleMainButtonClick.call(this);
     }
-  };
+  }
 
   render() {
     var questionSets = this.props.questionSets.map(questionSetMeta => {
@@ -284,4 +269,4 @@ QuestionPanel.defaultProps = {
   panelHistory: []
 };
 
-export default QuestionPanel;
+module.exports = QuestionPanel;

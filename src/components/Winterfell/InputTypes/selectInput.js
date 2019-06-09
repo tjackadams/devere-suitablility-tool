@@ -1,52 +1,54 @@
-import React, { PureComponent } from "react";
-import { Dropdown } from "office-ui-fabric-react/lib/Dropdown";
+let React = require("react");
+let { Dropdown } = require("office-ui-fabric-react/lib-commonjs/Dropdown");
 
-class SelectInput extends PureComponent {
+class SelectInput extends React.Component {
   constructor(props) {
     super(props);
 
+    this.select = React.createRef();
+
     this.state = {
-      selectedItem: undefined
+      value: this.props.value
     };
   }
 
-  onChange = (event, item) => {
+  handleChange = (e, i) => {
+    console.log("value", i);
     this.setState(
       {
-        selectedItem: item
+        value: i.key
       },
-      () => this.props.onChange(item.key)
+      this.props.onChange.bind(null, i.key)
     );
   };
 
   render() {
-    const { selectedItem } = this.state;
-
     const options = this.props.options.map(opt => {
-      return { key: opt.value, text: opt.text, selected: opt.default };
+      return {
+        key: opt.value,
+        text: opt.text
+      };
     });
 
-    const defaultKey = this.props.options.filter(opt => opt.default);
-
     return (
-      <div className="select">
-        <Dropdown
-          label={this.props.label}
-          selectedKey={
-            selectedItem
-              ? selectedItem.key
-              : defaultKey.length > 0
-              ? defaultKey[0].value
-              : undefined
-          }
-          onChange={this.onChange}
-          placeholder="Please select"
-          options={options}
-          required={this.props.required}
-          className={this.props.classes.select}
-        />
-      </div>
+      <Dropdown
+        componentRef={this.select}
+        options={options}
+        onChange={this.handleChange}
+        selectedKey={this.state.value}
+        className={this.props.select}
+        onBlur={this.props.onBlur.bind(null, this.state.value)}
+        required={this.props.required ? "required" : undefined}
+      />
     );
+  }
+
+  componentDidMount() {
+    /*
+     * Selects automatically pick the first item, so
+     * make sure we set it.
+     */
+    this.handleChange(undefined, { key: this.props.options[0].value });
   }
 }
 
@@ -60,4 +62,4 @@ SelectInput.defaultProps = {
   onBlur: () => {}
 };
 
-export default SelectInput;
+module.exports = SelectInput;
