@@ -17,6 +17,8 @@ import { types } from "../context/reducers";
 
 import Winterfell from "../components/Winterfell";
 
+import Log from "../Log";
+
 const styles = mergeStyleSets({
   container: {
     width: "100%"
@@ -59,7 +61,6 @@ const styles = mergeStyleSets({
 });
 
 Winterfell.addInputType("myDropdown", Dropdown);
-//Winterfell.addInputType2("myDropdown", Dropdown);
 
 const Home = props => {
   const { state, dispatch } = useContext(StoreContext);
@@ -89,7 +90,7 @@ const Home = props => {
             <Winterfell
               schema={schema}
               onUpdate={update => {
-                console.log("update", update);
+                Log.trace("Winterfell update: ", update);
                 dispatch({
                   type: types.SET_PROGRESS,
                   payload: {

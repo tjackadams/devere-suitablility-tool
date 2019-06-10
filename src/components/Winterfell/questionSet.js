@@ -1,11 +1,10 @@
 import React from "react";
-import _ from "lodash";
 
 import Question from "./question";
 
 class QuestionSet extends React.Component {
   render() {
-    var questions = this.props.questions.map(question => {
+    const questions = this.props.questions.map(question => {
       return (
         <Question
           key={question.questionId}

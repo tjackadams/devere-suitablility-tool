@@ -6840,9 +6840,9 @@ office-ui-fabric-react@^6.181.1, office-ui-fabric-react@^6.184.0:
     tslib "^1.7.1"
 
 office-ui-fabric-react@^6.189.1:
-  version "6.189.2"
-  resolved "https://registry.yarnpkg.com/office-ui-fabric-react/-/office-ui-fabric-react-6.189.2.tgz#e2d12a2c7847be8524ce8be95585987fd3de18bb"
-  integrity sha512-1Y111Ip78u7aCbmyRTucRldY4lYwRPkxhFL+y1rgQC4TivB2FmoHN6eSA1nAA59Ix4k2etM0UCzh7MdC1SbP5Q==
+  version "6.189.3"
+  resolved "https://registry.yarnpkg.com/office-ui-fabric-react/-/office-ui-fabric-react-6.189.3.tgz#69f0382d9543abfbf4a4ffbffd8aef25f224e764"
+  integrity sha512-vJC2sdoBtXDHbppGqP1WjYBKaCERXdubVN7m0sTWqUVZxHunf6pAQj1ZeX7l33357bMIsenE/H9YiJvHJAvzng==
   dependencies:
     "@microsoft/load-themed-styles" "^1.7.13"
     "@uifabric/foundation" "^0.7.6"

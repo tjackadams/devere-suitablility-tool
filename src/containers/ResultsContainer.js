@@ -82,7 +82,6 @@ const ResultsContainer = props => {
         setHeader(getHeader({ state: State.Warning }));
       } else {
         const ok = getAnswers({ answers: props.answers, state: State.OK });
-        console.log("returned results", ok);
         setResults([...ok]);
         setHeader(getHeader({ state: State.OK }));
       }
@@ -279,7 +278,6 @@ const ResultsContainer = props => {
 
     return myResult;
   };
-  console.log("pre results", results);
 
   if (results === undefined) {
     return null;

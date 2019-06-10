@@ -1,8 +1,9 @@
 import React from "react";
-import _ from "lodash";
 
 import { inputTypes, addInputType } from "./inputTypes";
 import QuestionPanel from "./questionPanel";
+
+import Log from "../../Log";
 
 class Winterfell extends React.Component {
   constructor(props) {
@@ -12,7 +13,8 @@ class Winterfell extends React.Component {
 
     this.panelHistory = [];
 
-    var schema = _.extend(
+    const schema = Object.assign(
+      {},
       {
         classes: {},
         formPanels: [],
@@ -24,14 +26,14 @@ class Winterfell extends React.Component {
 
     schema.formPanels = schema.formPanels.sort((a, b) => a.index > b.index);
 
-    var panelId =
+    const panelId =
       typeof props.panelId !== "undefined"
         ? props.panelId
         : schema.formPanels.length > 0
         ? schema.formPanels[0].panelId
         : undefined;
 
-    var currentPanel =
+    const currentPanel =
       typeof schema !== "undefined" &&
       typeof schema.formPanels !== "undefined" &&
       typeof panelId !== "undefined"
@@ -76,9 +78,10 @@ class Winterfell extends React.Component {
   };
 
   handleAnswerChange(questionId, questionAnswer) {
-    var questionAnswers = _.chain(this.state.questionAnswers)
-      .set(questionId, questionAnswer)
-      .value();
+    Log.trace("questionAnswers", this.state.questionAnswers);
+    const questionAnswers = Object.assign(this.state.questionAnswers, {
+      [questionId]: questionAnswer
+    });
 
     const currentQuestions = Object.keys(this.state.questionAnswers).length;
 
@@ -98,8 +101,8 @@ class Winterfell extends React.Component {
   }
 
   handleSwitchPanel(panelId, preventHistory) {
-    var panel = _.find(this.props.schema.formPanels, {
-      panelId: panelId
+    const panel = this.props.schema.formPanels.find(item => {
+      return item.panelId == panelId;
     });
 
     if (!panel) {
@@ -157,7 +160,7 @@ class Winterfell extends React.Component {
   }
 
   render() {
-    const currentPanel = this.state.schema.questionPanels.find(function(o) {
+    const currentPanel = this.state.schema.questionPanels.find(o => {
       return o.panelId == this.state.currentPanel.panelId;
     });
 

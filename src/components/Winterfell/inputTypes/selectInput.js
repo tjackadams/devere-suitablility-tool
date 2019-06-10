@@ -13,7 +13,6 @@ class SelectInput extends React.Component {
   }
 
   handleChange = (e, i) => {
-    console.log("value", i);
     this.setState(
       {
         value: i.key

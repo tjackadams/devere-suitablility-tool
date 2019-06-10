@@ -23,9 +23,6 @@ const styles = mergeStyleSets({
   },
 
   titleItem: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
     padding: "20px",
     borderWidth: "1px",
     borderStyle: "solid",
@@ -33,9 +30,6 @@ const styles = mergeStyleSets({
   },
 
   contentItem: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
     padding: "20px",
     borderWidth: "1px",
     borderStyle: "solid",
@@ -55,7 +49,7 @@ const PageLoader = () => (
     >
       <Stack padding={10} maxWidth={960} className={styles.stackContainer}>
         <Stack.Item className={styles.titleItem}>
-          <Shimmer />
+          <Shimmer width="100%" />
         </Stack.Item>
         <Stack.Item className={styles.contentItem}>
           <Shimmer width="50%" />

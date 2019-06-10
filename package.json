@@ -51,7 +51,6 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-you-dont-need-lodash-underscore": "^6.5.0",
-    "webpack-bundle-analyzer": "^3.3.2"
+    "eslint-plugin-you-dont-need-lodash-underscore": "^6.5.0"
   }
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import _ from "lodash";
 import * as KeyCodez from "keycodez";
 
 import * as Validation from "./lib/validation";
@@ -26,7 +25,7 @@ class QuestionPanel extends React.Component {
      * Run the question through its validations and
      * show any error messages if invalid.
      */
-    var questionValidationErrors = [];
+    const questionValidationErrors = [];
     validations.forEach(validation => {
       if (
         Validation.validateAnswer(
@@ -44,9 +43,9 @@ class QuestionPanel extends React.Component {
       });
     });
 
-    var validationErrors = _.chain(this.state.validationErrors)
-      .set(questionId, questionValidationErrors)
-      .value();
+    const validationErrors = Object.assign(this.state.validationErrors, {
+      [questionId]: questionValidationErrors
+    });
 
     this.setState({
       validationErrors: validationErrors
@@ -54,23 +53,24 @@ class QuestionPanel extends React.Component {
   }
 
   handleMainButtonClick() {
-    var action = this.props.action.default;
-    var conditions = this.props.action.conditions || [];
+    let action = this.props.action.default;
+    const conditions = this.props.action.conditions || [];
 
     /*
      * We need to get all the question sets for this panel.
      * Collate a list of the question set IDs required
      * and run through the schema to grab the question sets.
      */
-    var questionSetIds = this.props.questionSets.map(qS => qS.questionSetId);
-    var questionSets = _.chain(this.props.schema.questionSets)
-      .filter(qS => questionSetIds.indexOf(qS.questionSetId) > -1)
-      .value();
+    const questionSetIds = this.props.questionSets.map(qS => qS.questionSetId);
+
+    const questionSets = this.props.schema.questionSets.filter(item => {
+      return questionSetIds.indexOf(item.questionSetId) > -1;
+    });
 
     /*
      * Get any incorrect fields that need error messages.
      */
-    var invalidQuestions = Validation.getQuestionPanelInvalidQuestions(
+    const invalidQuestions = Validation.getQuestionPanelInvalidQuestions(
       questionSets,
       this.props.questionAnswers
     );
@@ -78,28 +78,28 @@ class QuestionPanel extends React.Component {
     /*
      * If the panel isn't valid...
      */
-    if (Object.keys(invalidQuestions).length > 0) {
-      var validationErrors = _.mapValues(invalidQuestions, validations => {
-        return validations.map(validation => {
-          return {
-            type: validation.type,
-            message: ErrorMessages.getErrorMessage(validation)
-          };
-        });
-      });
+    // if (Object.keys(invalidQuestions).length > 0) {
+    //   const validationErrors = _.mapValues(invalidQuestions, validations => {
+    //     return validations.map(validation => {
+    //       return {
+    //         type: validation.type,
+    //         message: ErrorMessages.getErrorMessage(validation)
+    //       };
+    //     });
+    //   });
 
-      this.setState({
-        validationErrors: validationErrors
-      });
-      return;
-    }
+    //   this.setState({
+    //     validationErrors: validationErrors
+    //   });
+    //   return;
+    // }
 
     /*
      * Panel is valid. So what do we do next?
      * Check our conditions and act upon them, or the default.
      */
     conditions.forEach(condition => {
-      var answer = this.props.questionAnswers[condition.questionId];
+      const answer = this.props.questionAnswers[condition.questionId];
 
       action =
         answer == condition.value
@@ -122,6 +122,8 @@ class QuestionPanel extends React.Component {
       case "SUBMIT":
         this.props.onSubmit(action.target);
         break;
+      default:
+        throw Error("No action supplied");
     }
   }
 
@@ -136,10 +138,12 @@ class QuestionPanel extends React.Component {
   handleAnswerChange(questionId, questionAnswer, validations, validateOn) {
     this.props.onAnswerChange(questionId, questionAnswer);
 
+    const validationErrors = Object.assign(this.state.validationErrors, {
+      [questionId]: []
+    });
+
     this.setState({
-      validationErrors: _.chain(this.state.validationErrors)
-        .set(questionId, [])
-        .value()
+      validationErrors: validationErrors
     });
 
     if (validateOn === "change") {
@@ -161,9 +165,9 @@ class QuestionPanel extends React.Component {
   }
 
   render() {
-    var questionSets = this.props.questionSets.map(questionSetMeta => {
-      var questionSet = _.find(this.props.schema.questionSets, {
-        questionSetId: questionSetMeta.questionSetId
+    const questionSets = this.props.questionSets.map(questionSetMeta => {
+      const questionSet = this.props.schema.questionSets.find(o => {
+        return o.questionSetId == questionSetMeta.questionSetId;
       });
 
       if (!questionSet) {

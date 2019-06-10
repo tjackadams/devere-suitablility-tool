@@ -1,5 +1,4 @@
 import React from "react";
-import _ from "lodash";
 
 import { inputTypes as InputTypes } from "./inputTypes";
 
@@ -23,7 +22,7 @@ class Question extends React.Component {
   }
 
   render() {
-    var Input = InputTypes[this.props.input.type];
+    const Input = InputTypes[this.props.input.type];
     if (!Input) {
       throw new Error(
         'Winterfell: Input Type "' +
@@ -41,7 +40,7 @@ class Question extends React.Component {
      * then render this component with the props for the conditional
      * question.
      */
-    var conditionalItems = [];
+    const conditionalItems = [];
     if (typeof this.props.input.options !== "undefined") {
       this.props.input.options
         .filter(option => {
@@ -86,7 +85,7 @@ class Question extends React.Component {
 
     // Get the current value. If none is set, then use
     // the default if given.
-    var value =
+    const value =
       typeof this.props.value !== "undefined"
         ? this.props.value
         : typeof this.props.input.default !== "undefined"
@@ -96,7 +95,7 @@ class Question extends React.Component {
     // Retrieve the validation errors for the
     // current question and map them in to
     // error-message blocks.
-    var validationErrors =
+    const validationErrors =
       typeof this.props.validationErrors[this.props.questionId] !== "undefined"
         ? this.props.validationErrors[this.props.questionId].map(error => {
             return typeof this.props.renderError === "function" ? (

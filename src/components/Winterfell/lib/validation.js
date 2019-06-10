@@ -1,4 +1,3 @@
-import _ from "lodash";
 import validator from "validator";
 import { stringParser } from "./stringParser";
 
@@ -18,8 +17,8 @@ const extraValidators = {
       return false;
     }
 
-    return _.every(value, item => {
-      return options.indexOf(item) > -1;
+    return value.every((element, index, array) => {
+      return options.indexOf(element) > -1;
     });
   }
 };
@@ -32,7 +31,7 @@ const extraValidators = {
  * @return boolean                Valid?
  */
 const validateAnswer = (value, validationItem, questionAnswers) => {
-  var validationMethod =
+  const validationMethod =
     typeof extraValidators[validationItem.type] !== "undefined"
       ? extraValidators[validationItem.type]
       : validator.hasOwnProperty(validationItem.type) &&
@@ -52,7 +51,7 @@ const validateAnswer = (value, validationItem, questionAnswers) => {
    * Clone the validation parameters so it doesn't effect the
    * parameters elsewhere by reference.
    */
-  var validationParameters = (validationItem.params || []).slice(0);
+  let validationParameters = (validationItem.params || []).slice(0);
 
   /*
    * Run the parameters through the stringParser with the
@@ -129,7 +128,7 @@ const getActiveQuestions = (questions, questionAnswers, activeQuestions) => {
  * @return array                  All active questions
  */
 const getActiveQuestionsFromQuestionSets = (questionSets, questionAnswers) => {
-  var questionsToCheck = [];
+  const questionsToCheck = [];
 
   questionSets.forEach(questionSet =>
     Array.prototype.push.apply(
@@ -149,7 +148,7 @@ const getActiveQuestionsFromQuestionSets = (questionSets, questionAnswers) => {
  * @return object                  Set of questions and their invalidations
  */
 const getQuestionPanelInvalidQuestions = (questionSets, questionAnswers) => {
-  var questionsToCheck = getActiveQuestionsFromQuestionSets(
+  const questionsToCheck = getActiveQuestionsFromQuestionSets(
     questionSets,
     questionAnswers
   ).filter(question => {
@@ -166,10 +165,10 @@ const getQuestionPanelInvalidQuestions = (questionSets, questionAnswers) => {
    * then run the question and answer through
    * the validation method required.
    */
-  var errors = {};
+  let errors = {};
   questionsToCheck.forEach(({ questionId, validations }) =>
     [].forEach.bind(validations, validation => {
-      var valid = validateAnswer(
+      const valid = validateAnswer(
         questionAnswers[questionId],
         validation,
         questionAnswers
@@ -230,7 +229,7 @@ const addValidationMethods = methods => {
     );
   }
 
-  for (var methodName in methods) {
+  for (let methodName in methods) {
     addValidationMethod(methodName, methods[methodName]);
   }
 };
