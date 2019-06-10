@@ -1,15 +1,15 @@
-module.exports = (template, params) => {
-  template = template || '';
-  params   = params || {};
+export const stringParser = (template, params) => {
+  template = template || "";
+  params = params || {};
 
   /*
    * Split up template in to array of characters
    */
-  var characters = template.split('');
+  var characters = template.split("");
 
-  var buffer         = '';
-  var parsedTemplate = '';
-  var collecting     = false;
+  var buffer = "";
+  var parsedTemplate = "";
+  var collecting = false;
 
   for (var i = 0; i < characters.length; i++) {
     var currentChar = characters[i];
@@ -20,9 +20,7 @@ module.exports = (template, params) => {
      * append the charater to the
      * parsedTemplate and move on
      */
-    if (!collecting
-        && currentChar != '{'
-        && currentChar != '}') {
+    if (!collecting && currentChar != "{" && currentChar != "}") {
       parsedTemplate += currentChar;
       continue;
     }
@@ -31,7 +29,7 @@ module.exports = (template, params) => {
      * If we're an opening brace,
      * start collecting for the buffer
      */
-    if (currentChar == '{') {
+    if (currentChar == "{") {
       collecting = true;
     }
 
@@ -40,8 +38,7 @@ module.exports = (template, params) => {
      * we're not a brace of any sort then add
      * the character to the buffer
      */
-    if (currentChar != '{'
-        && currentChar != '}') {
+    if (currentChar != "{" && currentChar != "}") {
       buffer += currentChar;
     }
 
@@ -51,9 +48,9 @@ module.exports = (template, params) => {
      * buffers name from the params object
      * and add it to the parsedTemplate
      */
-    if (currentChar == '}') {
-      var value = '';
-      if (typeof params[buffer] !== 'undefined') {
+    if (currentChar == "}") {
+      var value = "";
+      if (typeof params[buffer] !== "undefined") {
         value = params[buffer];
       }
 
@@ -64,7 +61,7 @@ module.exports = (template, params) => {
        * the buffer to nothing
        */
       collecting = false;
-      buffer = '';
+      buffer = "";
     }
   }
 

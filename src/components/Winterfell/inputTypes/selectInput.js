@@ -1,5 +1,5 @@
-let React = require("react");
-let { Dropdown } = require("office-ui-fabric-react/lib-commonjs/Dropdown");
+import React from "react";
+import { Dropdown } from "office-ui-fabric-react/lib/Dropdown";
 
 class SelectInput extends React.Component {
   constructor(props) {
@@ -62,4 +62,4 @@ SelectInput.defaultProps = {
   onBlur: () => {}
 };
 
-module.exports = SelectInput;
+export default SelectInput;

@@ -1,12 +1,12 @@
-var React = require("react");
-var _ = require("lodash").noConflict();
-var KeyCodez = require("keycodez");
+import React from "react";
+import _ from "lodash";
+import * as KeyCodez from "keycodez";
 
-var Validation = require("./lib/validation");
-var ErrorMessages = require("./lib/errors");
+import * as Validation from "./lib/validation";
+import * as ErrorMessages from "./lib/errors";
 
-var Button = require("./button");
-var QuestionSet = require("./questionSet");
+import Button from "./button";
+import QuestionSet from "./questionSet";
 
 class QuestionPanel extends React.Component {
   constructor(props) {
@@ -269,4 +269,4 @@ QuestionPanel.defaultProps = {
   panelHistory: []
 };
 
-module.exports = QuestionPanel;
+export default QuestionPanel;

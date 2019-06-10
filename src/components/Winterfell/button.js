@@ -1,8 +1,8 @@
-let React = require("react");
-let {
+import React from "react";
+import {
   DefaultButton,
   PrimaryButton
-} = require("office-ui-fabric-react/lib-commonjs/Button");
+} from "office-ui-fabric-react/lib/Button";
 
 class Button extends React.Component {
   handleClick = e => {
@@ -37,4 +37,4 @@ Button.defaultProps = {
   onClick: () => {}
 };
 
-module.exports = Button;
+export default Button;

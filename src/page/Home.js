@@ -15,7 +15,7 @@ import { ProgressBar } from "../components/Progress";
 import { StoreContext } from "../context/StoreContext";
 import { types } from "../context/reducers";
 
-import * as Winterfell from "../components/Winterfell/index";
+import Winterfell from "../components/Winterfell";
 
 const styles = mergeStyleSets({
   container: {
@@ -59,6 +59,7 @@ const styles = mergeStyleSets({
 });
 
 Winterfell.addInputType("myDropdown", Dropdown);
+//Winterfell.addInputType2("myDropdown", Dropdown);
 
 const Home = props => {
   const { state, dispatch } = useContext(StoreContext);

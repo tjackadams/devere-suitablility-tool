@@ -1,15 +1,15 @@
-.login-form {
+.loginForm {
   width: 100%;
 }
 
-.button-bar {
+.buttonBar {
   margin-top: 20px;
 }
 
-.pull-right {
+.pullRight {
   float: right;
 }
 
-.result-icon {
+.resultIcon {
   font-size: 48px;
 }

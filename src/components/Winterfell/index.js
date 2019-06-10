@@ -1,7 +1,8 @@
-let React = require("react");
-let _ = require("lodash").noConflict();
+import React from "react";
+import _ from "lodash";
 
-var QuestionPanel = require("./questionPanel");
+import { inputTypes, addInputType } from "./inputTypes";
+import QuestionPanel from "./questionPanel";
 
 class Winterfell extends React.Component {
   constructor(props) {
@@ -34,7 +35,9 @@ class Winterfell extends React.Component {
       typeof schema !== "undefined" &&
       typeof schema.formPanels !== "undefined" &&
       typeof panelId !== "undefined"
-        ? _.find(schema.formPanels, panel => panel.panelId == panelId)
+        ? schema.formPanels.find(function(o) {
+            return o.panelId == panelId;
+          })
         : undefined;
 
     if (!currentPanel) {
@@ -154,10 +157,9 @@ class Winterfell extends React.Component {
   }
 
   render() {
-    var currentPanel = _.find(
-      this.state.schema.questionPanels,
-      panel => panel.panelId == this.state.currentPanel.panelId
-    );
+    const currentPanel = this.state.schema.questionPanels.find(function(o) {
+      return o.panelId == this.state.currentPanel.panelId;
+    });
 
     return (
       <form
@@ -199,11 +201,11 @@ class Winterfell extends React.Component {
   }
 }
 
-Winterfell.inputTypes = require("./inputTypes");
+Winterfell.inputTypes = inputTypes;
 Winterfell.errorMessages = require("./lib/errors");
 Winterfell.validation = require("./lib/validation");
 
-Winterfell.addInputType = Winterfell.inputTypes.addInputType;
+Winterfell.addInputType = addInputType;
 Winterfell.addInputTypes = Winterfell.inputTypes.addInputTypes;
 
 Winterfell.addErrorMessage = Winterfell.errorMessages.addErrorMessage;
@@ -227,4 +229,4 @@ Winterfell.defaultProps = {
   onRender: () => {}
 };
 
-module.exports = Winterfell;
+export default Winterfell;
