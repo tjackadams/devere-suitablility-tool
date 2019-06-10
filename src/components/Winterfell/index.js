@@ -1,6 +1,5 @@
-var React = require("react");
-var ReactDOM = require("react-dom");
-var _ = require("lodash").noConflict();
+let React = require("react");
+let _ = require("lodash").noConflict();
 
 var QuestionPanel = require("./questionPanel");
 
