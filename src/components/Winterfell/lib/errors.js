@@ -1,4 +1,4 @@
-const errorMessages = {
+export const errorMessages = {
   /*
    * Fallback Error Message
    */
@@ -14,7 +14,6 @@ const errorMessages = {
           "Please enter a value with at least " +
           validationItem.params[0] +
           " character" +
-          // eslint-disable-next-line eqeqeq
           (validationItem.params[0] != 1 ? "s" : "")
         );
 
@@ -150,7 +149,7 @@ const errorMessages = {
  * @param  string          type    Error message type
  * @param  string|function message Message or function to get message
  */
-errorMessages.addErrorMessage = (type, message) => {
+export const addErrorMessage = (type, message) => {
   if (typeof type !== "string") {
     throw new Error(
       "Winterfell: First parameter of addErrorMessage " +
@@ -173,7 +172,7 @@ errorMessages.addErrorMessage = (type, message) => {
  *
  * @param  object messages Error messages to add. type => func|string
  */
-errorMessages.addErrorMessages = messages => {
+export const addErrorMessages = messages => {
   if (typeof messages !== "object") {
     throw new Error(
       "Winterfell: First parameter of addErrorMessages " +
@@ -192,8 +191,8 @@ errorMessages.addErrorMessages = messages => {
  * @param  object  validationItem Validation error item
  * @return string                 Error message to display
  */
-errorMessages.getErrorMessage = validationItem => {
-  var errorMessage =
+export const getErrorMessage = validationItem => {
+  const errorMessage =
     typeof validationItem.message !== "undefined"
       ? validationItem.message
       : typeof errorMessages[validationItem.type] !== "undefined"
@@ -211,8 +210,6 @@ errorMessages.getErrorMessage = validationItem => {
  * @param  string          type    Error message type
  * @param  stirng|function message essage or function to get message
  */
-var setErrorMessage = (type, message) => {
+export const setErrorMessage = (type, message) => {
   errorMessages[type] = message;
 };
-
-module.exports = errorMessages;

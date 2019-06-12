@@ -1,4 +1,3 @@
-
-module.exports = (array) => {
+export const cloneArray = array => {
   return array.slice(0);
 };

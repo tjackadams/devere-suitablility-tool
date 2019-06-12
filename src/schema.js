@@ -1,16 +1,11 @@
 import questions from "./questions";
+import styles from "./Schema.module.css";
 
 const schema = {
   classes: {
-    form: "login-form",
-    question: "form-group form-group-margin",
-    input: "form-control",
-    controlButton: "btn devere-color pull-right",
-    backButton: "btn btn-light pull-left",
-    errorMessage: "alert alert-danger",
-    buttonBar: "button-bar",
-    select: "select-text",
-    label: "question-label"
+    form: styles.loginForm,
+    controlButton: styles.pullRight,
+    buttonBar: styles.buttonBar
   },
   formPanels: [
     {

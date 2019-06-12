@@ -1,9 +1,9 @@
 import React from "react";
-import _ from "lodash";
 
-import * as InputTypes from "./InputTypes";
-import * as Validation from "./lib/Validation";
-import QuestionPanel from "./QuestionPanel";
+import { inputTypes, addInputType } from "./inputTypes";
+import QuestionPanel from "./questionPanel";
+
+import Log from "../../Log";
 
 class Winterfell extends React.Component {
   constructor(props) {
@@ -13,7 +13,8 @@ class Winterfell extends React.Component {
 
     this.panelHistory = [];
 
-    const schema = _.extend(
+    const schema = Object.assign(
+      {},
       {
         classes: {},
         formPanels: [],
@@ -36,7 +37,9 @@ class Winterfell extends React.Component {
       typeof schema !== "undefined" &&
       typeof schema.formPanels !== "undefined" &&
       typeof panelId !== "undefined"
-        ? _.find(schema.formPanels, panel => panel.panelId == panelId)
+        ? schema.formPanels.find(function(o) {
+            return o.panelId == panelId;
+          })
         : undefined;
 
     if (!currentPanel) {
@@ -45,20 +48,15 @@ class Winterfell extends React.Component {
       );
     }
 
-    const add = (a, b) => a + b;
-    const questionsTotalCount = Object.keys(schema.questionSets)
-      .map(qs => {
-        return schema.questionSets[qs].questions.length;
-      })
-      .reduce(add);
+    const totalQuestions = this.getQuestionTotal(schema);
 
     this.state = {
       schema: schema,
       currentPanel: currentPanel,
       action: props.action,
       questionAnswers: props.questionAnswers,
-      questionsCurrentCount: 0,
-      questionsTotalCount: questionsTotalCount
+      currentQuestion: 0,
+      totalQuestions: totalQuestions
     };
   }
 
@@ -70,32 +68,41 @@ class Winterfell extends React.Component {
     });
   }
 
-  handleAnswerChange = (questionId, questionAnswer) => {
-    const questionAnswers = _.chain(this.state.questionAnswers)
-      .set(questionId, questionAnswer)
-      .value();
-
-    const questionsCurrentCount = Object.keys(this.state.questionAnswers)
-      .length;
-
-    const { questionsTotalCount } = this.state;
-
-    this.setState(
-      {
-        questionAnswers: questionAnswers,
-        questionsCurrentCount: questionsCurrentCount
-      },
-      this.props.onUpdate.bind(null, {
-        questionAnswer,
-        questionsCurrentCount,
-        questionsTotalCount
+  getQuestionTotal = schema => {
+    const add = (a, b) => a + b;
+    return Object.keys(schema.questionSets)
+      .map(qs => {
+        return schema.questionSets[qs].questions.length;
       })
-    );
+      .reduce(add);
   };
 
+  handleAnswerChange(questionId, questionAnswer) {
+    Log.trace("questionAnswers", this.state.questionAnswers);
+    const questionAnswers = Object.assign(this.state.questionAnswers, {
+      [questionId]: questionAnswer
+    });
+
+    const currentQuestions = Object.keys(this.state.questionAnswers).length;
+
+    this.setState(
+      state => {
+        return {
+          questionAnswers: questionAnswers,
+          currentQuestion: currentQuestions
+        };
+      },
+      this.props.onUpdate.bind(null, {
+        questionAnswers,
+        currentCount: this.state.currentQuestion,
+        totalCount: this.state.totalQuestions
+      })
+    );
+  }
+
   handleSwitchPanel(panelId, preventHistory) {
-    var panel = _.find(this.props.schema.formPanels, {
-      panelId: panelId
+    const panel = this.props.schema.formPanels.find(item => {
+      return item.panelId == panelId;
     });
 
     if (!panel) {
@@ -118,7 +125,7 @@ class Winterfell extends React.Component {
     );
   }
 
-  handleBackButtonClick = () => {
+  handleBackButtonClick() {
     this.panelHistory.pop();
 
     this.handleSwitchPanel.call(
@@ -126,7 +133,7 @@ class Winterfell extends React.Component {
       this.panelHistory[this.panelHistory.length - 1],
       true
     );
-  };
+  }
 
   handleSubmit(action) {
     if (this.props.disableSubmit) {
@@ -153,10 +160,9 @@ class Winterfell extends React.Component {
   }
 
   render() {
-    var currentPanel = _.find(
-      this.state.schema.questionPanels,
-      panel => panel.panelId == this.state.currentPanel.panelId
-    );
+    const currentPanel = this.state.schema.questionPanels.find(o => {
+      return o.panelId == this.state.currentPanel.panelId;
+    });
 
     return (
       <form
@@ -198,11 +204,11 @@ class Winterfell extends React.Component {
   }
 }
 
-Winterfell.inputTypes = InputTypes;
+Winterfell.inputTypes = inputTypes;
 Winterfell.errorMessages = require("./lib/errors");
-Winterfell.validation = Validation;
+Winterfell.validation = require("./lib/validation");
 
-Winterfell.addInputType = Winterfell.inputTypes.addInputType;
+Winterfell.addInputType = addInputType;
 Winterfell.addInputTypes = Winterfell.inputTypes.addInputTypes;
 
 Winterfell.addErrorMessage = Winterfell.errorMessages.addErrorMessage;

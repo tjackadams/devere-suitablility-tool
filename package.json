@@ -3,41 +3,54 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/jest": "^24.0.13",
+    "@types/node": "^12.0.5",
+    "@types/react": "^16.8.19",
+    "@types/react-dom": "^16.8.4",
+    "@uifabric/fluent-theme": "^0.16.10",
     "classnames": "^2.2.6",
     "debug": "^4.1.1",
     "keycodez": "^1.0.0",
+    "office-ui-fabric-core": "^10.1.0",
+    "office-ui-fabric-react": "^6.189.1",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4",
+    "react-dom": "^16.8.6",
     "react-error-boundaries": "^1.1.4",
+    "react-ga": "^2.5.7",
     "react-pose": "^4.0.8",
-    "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.8",
-    "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.86.0",
-    "validator": "^10.11.0"
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1",
+    "source-map-explorer": "^2.0.0",
+    "typescript": "^3.5.1",
+    "validator": "^11.0.0"
   },
   "scripts": {
-    "build-semantic": "cd src/styling && gulp build-css build-assets",
-    "watch-semantic": "cd src/styling && npm run build-semantic && gulp watch",
-    "start": "npm run build-semantic && react-scripts start",
-    "build": "npm run build-semantic && react-scripts build",
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "plugin:you-dont-need-lodash-underscore/compatible"
+    ]
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "devDependencies": {
-    "semantic-ui": "^2.4.2"
-  },
-  "engines": {
-    "yarn": "YARN NO LONGER USED - use npm instead."
+    "eslint-plugin-you-dont-need-lodash-underscore": "^6.5.0"
   }
 }

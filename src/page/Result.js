@@ -1,13 +1,16 @@
-import React, { PureComponent } from "react";
+import React, { useContext } from "react";
+import { Redirect } from "react-router";
 
-import { ScoreCard } from "../components/ScoreCard";
+import { StoreContext } from "../context/StoreContext";
 
-class Result extends PureComponent {
-  render() {
-    const answers = this.props.location.state.answers;
+import { ResultsContainer } from "../containers";
 
-    return <ScoreCard answers={answers} />;
+const Result = props => {
+  const { state } = useContext(StoreContext);
+  if (state.answers === undefined) {
+    return <Redirect to="/" />;
   }
-}
+  return <ResultsContainer answers={state.answers} />;
+};
 
 export default Result;

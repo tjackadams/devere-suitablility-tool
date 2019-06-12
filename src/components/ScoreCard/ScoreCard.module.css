@@ -1,0 +1,14 @@
+.ms-Grid {
+  box-sizing: border-box;
+  *zoom: 1;
+  padding: 0 8px;
+}
+.ms-Grid:after,
+.ms-Grid:before {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.ms-Grid:after {
+  clear: both;
+}

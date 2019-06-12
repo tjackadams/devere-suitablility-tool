@@ -10,17 +10,19 @@ const questions = [
         question: "Is the purchase for Buy to Let or Residential purposes?",
         input: {
           type: "selectInput",
+          default: 0,
           required: true,
           options: [
             {
               text: "Buy to Let",
               value: 0,
-              state: "Ok"
+              state: "OK",
+              default: true
             },
             {
               text: "Residential",
               value: 1,
-              state: "Ok"
+              state: "OK"
             },
             {
               text: "Not Sure",
@@ -46,7 +48,8 @@ const questions = [
             {
               text: "No",
               value: 0,
-              state: "Ok"
+              state: "OK",
+              default: true
             },
             {
               text: "Yes",
@@ -72,7 +75,7 @@ const questions = [
             {
               text: "No",
               value: 0,
-              state: "Ok"
+              state: "OK"
             },
             {
               text: "Yes",
@@ -99,63 +102,63 @@ const questions = [
             {
               text: "China",
               value: "china",
-              state: "Ok"
+              state: "OK"
             },
             {
               text: "France",
               value: "france",
-              state: "Ok"
+              state: "OK"
             },
             {
               text: "Hong Kong",
               value: "hongkong",
-              state: "Ok"
+              state: "OK"
             },
             {
               text: "Kuwait",
               value: "kuwait",
-              state: "Ok"
+              state: "OK"
             },
             {
               text: "Netherlands",
               value: "netherlands",
-              state: "Ok"
+              state: "OK"
             },
             {
               text: "New Zealand",
               value: "newzealand",
-              state: "Ok"
+              state: "OK"
             },
             {
               text: "Oman",
               value: "oman",
-              state: "Ok"
+              state: "OK"
             },
             {
               text: "Qatar",
               value: "qatar",
-              state: "Ok"
+              state: "OK"
             },
             {
               text: "Spain",
               value: "spain",
-              state: "Ok"
+              state: "OK"
             },
             {
               text: "Switzerland",
               value: "switzerland",
-              state: "Ok"
+              state: "OK"
             },
             {
               text: "United Arab Emirates",
               value: "uae",
-              state: "Ok"
+              state: "OK"
             },
 
             {
               text: "United States of America",
               value: "usa",
-              state: "Ok"
+              state: "OK"
             },
 
             {
@@ -182,7 +185,8 @@ const questions = [
             {
               text: "No",
               value: 0,
-              state: "Ok"
+              state: "OK",
+              default: true
             },
             {
               text: "Yes",
@@ -208,7 +212,8 @@ const questions = [
             {
               text: "Yes",
               value: 1,
-              state: "Ok"
+              state: "OK",
+              default: true
             },
             {
               text: "No",
@@ -241,12 +246,13 @@ const questions = [
             {
               text: "Yes",
               value: 1,
-              state: "Ok"
+              state: "OK",
+              default: true
             },
             {
               text: "No",
               value: 0,
-              state: "Ok"
+              state: "OK"
             },
             {
               text: "Not Sure",
@@ -273,7 +279,8 @@ const questions = [
               text: "Yes",
               value: 1,
               state: "Warning",
-              reason: LimitChoiceOfLenders
+              reason: LimitChoiceOfLenders,
+              default: true
             },
             {
               text: "No",
@@ -299,7 +306,8 @@ const questions = [
             {
               text: "Yes",
               value: 1,
-              state: "Ok"
+              state: "OK",
+              default: true
             },
             {
               text: "No",
@@ -332,7 +340,8 @@ const questions = [
             {
               text: "No",
               value: 0,
-              state: "Ok"
+              state: "OK",
+              default: true
             },
             {
               text: "Yes",
@@ -364,12 +373,13 @@ const questions = [
             {
               text: "No",
               value: 0,
-              state: "Ok"
+              state: "OK",
+              default: true
             },
             {
               text: "Yes",
               value: 1,
-              state: "Ok"
+              state: "OK"
             }
           ]
         }
@@ -389,7 +399,8 @@ const questions = [
             {
               text: "Yes",
               value: 1,
-              state: "Ok"
+              state: "OK",
+              default: true
             },
             {
               text: "No",
@@ -415,32 +426,32 @@ const questions = [
             {
               text: "Great British Pound (GBP)",
               value: "gbp",
-              state: "Ok"
+              state: "OK"
             },
             {
               text: "Swiss Franc (CHF)",
               value: "chf",
-              state: "Ok"
+              state: "OK"
             },
             {
               text: "Emirati Dirham (AED)",
               value: "aed",
-              state: "Ok"
+              state: "OK"
             },
             {
               text: "Qatari Riyal (QAR)",
               value: "qar",
-              state: "Ok"
+              state: "OK"
             },
             {
               text: "Euro (EUR)",
               value: "eur",
-              state: "Ok"
+              state: "OK"
             },
             {
               text: "US Dollar (USD)",
               value: "usd",
-              state: "Ok"
+              state: "OK"
             },
             {
               text: "Other",
@@ -467,14 +478,15 @@ const questions = [
             {
               text: "Yes",
               value: 1,
-              state: "Ok",
+              state: "OK",
               reason:
-                "Regardless of whether this is your first property in the UK for any of the applicants, you will still be subject to the additional Stamp Duty Land Tax charges. The additional charges will still apply if you are married and purchase as a sole applicant first time buyer within the UK, but your spouse currently owns property worldwide."
+                "Regardless of whether this is your first property in the UK for any of the applicants, you will still be subject to the additional Stamp Duty Land Tax charges. The additional charges will still apply if you are married and purchase as a sole applicant first time buyer within the UK, but your spouse currently owns property worldwide.",
+              default: true
             },
             {
               text: "No",
               value: 0,
-              state: "Ok",
+              state: "OK",
               reason:
                 "If this is a Buy to Let property, you will still be subject to Stamp Duty Land Tax charges."
             }
@@ -497,9 +509,10 @@ const questions = [
             {
               text: "Yes",
               value: 1,
-              state: "Ok",
+              state: "OK",
               reason:
-                "Additional lenders and lower rates can be offered, if the deposit is above 35% of the property value. This can be subject to other criteria being met."
+                "Additional lenders and lower rates can be offered, if the deposit is above 35% of the property value. This can be subject to other criteria being met.",
+              default: true
             },
             {
               text: "No",
