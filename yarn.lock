@@ -6789,10 +6789,10 @@ office-ui-fabric-core@^10.1.0:
   resolved "https://registry.yarnpkg.com/office-ui-fabric-core/-/office-ui-fabric-core-10.1.0.tgz#9b19386330bd439e42ee69f5debba84b4f78b1c5"
   integrity sha512-t/CwL+02bwY7bNrrYaKAk++pf9RQoqsc56/hhuzoJ2muUvZYmQMDVG5jzUc6LU5uQvbafVjn9J+RpxM0EkiG0A==
 
-office-ui-fabric-react@^7.1.1, office-ui-fabric-react@^7.4.1:
-  version "7.4.1"
-  resolved "https://registry.yarnpkg.com/office-ui-fabric-react/-/office-ui-fabric-react-7.4.1.tgz#a1f6247bdf97210282277d4574fe6299891e60f7"
-  integrity sha512-pZT6K10wPnT/Mr5TQb6N3Zx3+pzoCDilkqpl5IJdOrvxR+pPF6syK0SGXno3O6FTSPt8DQyfo1v256ZwJ34opA==
+office-ui-fabric-react@^7.1.1, office-ui-fabric-react@^7.4.2:
+  version "7.4.2"
+  resolved "https://registry.yarnpkg.com/office-ui-fabric-react/-/office-ui-fabric-react-7.4.2.tgz#3c0c68f81cafd613550f2d34fe4a69560bc84515"
+  integrity sha512-5g+Z5CgA0L3TAxhtdDNe05k1uiCjfZZ+QLOkTA3ABUs8grL0IVS/x8gOC5Lv5jLjwFAcQE+Iz1gbb8UU6R54rw==
   dependencies:
     "@microsoft/load-themed-styles" "^1.7.13"
     "@uifabric/foundation" "^7.0.1"
