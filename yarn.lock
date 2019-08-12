@@ -1396,16 +1396,16 @@
     lodash.unescape "4.0.1"
     semver "5.5.0"
 
-"@uifabric/fluent-theme@^7.0.4":
-  version "7.0.4"
-  resolved "https://registry.yarnpkg.com/@uifabric/fluent-theme/-/fluent-theme-7.0.4.tgz#a32beb75254f92b0aa919afa9147b9c4d960dd85"
-  integrity sha512-XKoKgJG/eaXdE39wk0iPDZqd8UxAfp/0BFVoyAJC5uLOLEcLfutdloSKRN/3HZT6mnJwRNOu+CkARvZH1uOfVQ==
+"@uifabric/fluent-theme@^7.1.0":
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@uifabric/fluent-theme/-/fluent-theme-7.1.0.tgz#076f30f45e2271b11390669bc9dfda885723122f"
+  integrity sha512-+QHLLfooanmqesU8B+zymYPvnZXEwNzcftSZAq9UUy8V6BEndiDkAdk/Uv33ccJUQgkLDXW9/dli5U1WhVhwfw==
   dependencies:
-    "@uifabric/merge-styles" "^7.2.0"
+    "@uifabric/merge-styles" "^7.3.0"
     "@uifabric/set-version" "^7.0.1"
-    "@uifabric/styling" "^7.2.1"
+    "@uifabric/styling" "^7.4.0"
     "@uifabric/variants" "^7.0.3"
-    office-ui-fabric-react "^7.11.0"
+    office-ui-fabric-react "^7.21.0"
     tslib "^1.7.1"
 
 "@uifabric/foundation@^7.0.3":
@@ -1427,10 +1427,10 @@
     "@uifabric/styling" "^7.2.1"
     tslib "^1.7.1"
 
-"@uifabric/merge-styles@^7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@uifabric/merge-styles/-/merge-styles-7.2.0.tgz#1ad604368066dc801f584de6c23c072680ec97dd"
-  integrity sha512-EA2aNl7jn3nUxwFZSausAr1MU8/C1pjLwyuLIQ4t0u86QW+MJuagXZY2X//oLPzvnACDrA5Z3SOcVbi+uzfTXA==
+"@uifabric/merge-styles@^7.2.0", "@uifabric/merge-styles@^7.3.0":
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/@uifabric/merge-styles/-/merge-styles-7.3.0.tgz#a851fd19a9e82acd1cffdcd122eec46388f4646f"
+  integrity sha512-n8Edoum0yiBsddyUaiosVMTKItImnkErlOsVosPidTOVYK+4YdRZIQJl2jVEAlxhXkGwzppSsYcvnd/IIqaK8A==
   dependencies:
     "@uifabric/set-version" "^7.0.1"
     tslib "^1.7.1"
@@ -1442,13 +1442,13 @@
   dependencies:
     tslib "^1.7.1"
 
-"@uifabric/styling@^7.2.1", "@uifabric/styling@^7.4.0":
-  version "7.4.0"
-  resolved "https://registry.yarnpkg.com/@uifabric/styling/-/styling-7.4.0.tgz#898d5e6b8028cd3e12cc3aa8a2c19c180b9fc52f"
-  integrity sha512-JsTqeaQ5Tp/i8FcvzZg/a4u8+RwLrNZv9JywLnyiFbd5l6hwL+UjlOoajHLpJew+7eFqV2S/YGv/ButXpJi0vg==
+"@uifabric/styling@^7.2.1", "@uifabric/styling@^7.4.0", "@uifabric/styling@^7.4.1":
+  version "7.4.1"
+  resolved "https://registry.yarnpkg.com/@uifabric/styling/-/styling-7.4.1.tgz#0b294ae5473048dd4dedad4338c4755e3503c3ce"
+  integrity sha512-0qJc5d8+NXXPRIMKTleCawjnRb5A/sXy9yUftImjQvrUFWxptrlUBZHx7CVgJMjxH9GHRUYIoCglvWUKuHgbUg==
   dependencies:
     "@microsoft/load-themed-styles" "^1.7.13"
-    "@uifabric/merge-styles" "^7.2.0"
+    "@uifabric/merge-styles" "^7.3.0"
     "@uifabric/set-version" "^7.0.1"
     "@uifabric/utilities" "^7.0.7"
     tslib "^1.7.1"
@@ -6781,17 +6781,17 @@ office-ui-fabric-core@^10.1.0:
   resolved "https://registry.yarnpkg.com/office-ui-fabric-core/-/office-ui-fabric-core-10.1.0.tgz#9b19386330bd439e42ee69f5debba84b4f78b1c5"
   integrity sha512-t/CwL+02bwY7bNrrYaKAk++pf9RQoqsc56/hhuzoJ2muUvZYmQMDVG5jzUc6LU5uQvbafVjn9J+RpxM0EkiG0A==
 
-office-ui-fabric-react@^7.11.0, office-ui-fabric-react@^7.19.1:
-  version "7.19.1"
-  resolved "https://registry.yarnpkg.com/office-ui-fabric-react/-/office-ui-fabric-react-7.19.1.tgz#985021c2b85c2509d817237309badcc9da1d55ae"
-  integrity sha512-mBRxC7Np73jqKt8nXSu6jCFYFL/qcuXP1hwqvAkQylefTUoXJ7fD001SScrySWLokD5TAb+k4pQsmliErR7B8w==
+office-ui-fabric-react@^7.11.0, office-ui-fabric-react@^7.19.1, office-ui-fabric-react@^7.21.0:
+  version "7.22.1"
+  resolved "https://registry.yarnpkg.com/office-ui-fabric-react/-/office-ui-fabric-react-7.22.1.tgz#8ca7bf007d38eb95f719ed145aee27f04d4d2baf"
+  integrity sha512-ProfdfADo4tMsdkqaaFwFu1tDuWfiAhRsylgnLhPMRjG+M+tR7A0Njqq8Bk28CNgdCye6ZKw9fsmlIaDpF5RrQ==
   dependencies:
     "@microsoft/load-themed-styles" "^1.7.13"
     "@uifabric/foundation" "^7.0.3"
     "@uifabric/icons" "^7.1.1"
-    "@uifabric/merge-styles" "^7.2.0"
+    "@uifabric/merge-styles" "^7.3.0"
     "@uifabric/set-version" "^7.0.1"
-    "@uifabric/styling" "^7.4.0"
+    "@uifabric/styling" "^7.4.1"
     "@uifabric/utilities" "^7.0.7"
     prop-types "^15.5.10"
     tslib "^1.7.1"
