@@ -7,7 +7,7 @@
     "@types/node": "^12.6.9",
     "@types/react": "^16.8.24",
     "@types/react-dom": "^16.8.5",
-    "@uifabric/fluent-theme": "^7.0.4",
+    "@uifabric/fluent-theme": "^7.1.0",
     "classnames": "^2.2.6",
     "debug": "^4.1.1",
     "keycodez": "^1.0.0",
