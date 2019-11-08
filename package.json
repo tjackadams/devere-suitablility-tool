@@ -51,6 +51,6 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-you-dont-need-lodash-underscore": "^6.6.0"
+    "eslint-plugin-you-dont-need-lodash-underscore": "^6.8.0"
   }
 }
