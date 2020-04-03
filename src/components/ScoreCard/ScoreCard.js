@@ -58,7 +58,10 @@ const ScoreCard = props => {
         verticalAlign="center"
         className={styles.container}
       >
-        <Stack padding={10} maxWidth={960} className={styles.stackContainer}>
+        <Stack
+          className={styles.stackContainer}
+          tokens={{ maxWidth: 960, padding: 10 }}
+        >
           <Stack.Item className={styles.titleItem}>{props.header}</Stack.Item>
           <Stack.Item className={styles.contentItem}>
             <div className={msStyles["ms-Grid"]}>

@@ -80,7 +80,10 @@ const Home = props => {
         verticalAlign="center"
         className={styles.container}
       >
-        <Stack padding={10} maxWidth={960} className={styles.stackContainer}>
+        <Stack
+          className={styles.stackContainer}
+          tokens={{ maxWidth: 960, padding: 10 }}
+        >
           <Stack.Item className={styles.titleItem}>
             <Text variant="xxLarge" className={styles.title}>
               deVere UK Mortgages for Overseas Clients
