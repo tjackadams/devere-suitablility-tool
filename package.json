@@ -12,7 +12,7 @@
     "debug": "^4.1.1",
     "keycodez": "^1.0.0",
     "office-ui-fabric-core": "^11.0.0",
-    "office-ui-fabric-react": "^7.105.8",
+    "office-ui-fabric-react": "^7.117.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-error-boundaries": "^1.1.4",
