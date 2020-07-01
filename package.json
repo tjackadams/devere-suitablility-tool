@@ -16,7 +16,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-error-boundaries": "^1.1.4",
-    "react-ga": "^2.7.0",
+    "react-ga": "^3.0.0",
     "react-pose": "^4.0.10",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.1.2",
