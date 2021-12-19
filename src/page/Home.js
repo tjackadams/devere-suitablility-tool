@@ -21,18 +21,18 @@ import Log from "../Log";
 
 const styles = mergeStyleSets({
   container: {
-    width: "100%"
+    width: "100%",
   },
 
   stackContainer: {
     width: "100%",
-    marginTop: "8vh"
+    marginTop: "8vh",
   },
 
   item: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
 
   titleItem: {
@@ -40,7 +40,7 @@ const styles = mergeStyleSets({
     alignItems: "center",
     justifyContent: "center",
     background: "#003366",
-    padding: "20px"
+    padding: "20px",
   },
 
   contentItem: {
@@ -52,17 +52,17 @@ const styles = mergeStyleSets({
     borderStyle: "solid",
     borderColor: "rgb(138, 136, 134)",
     borderBottomLeftRadius: "2px",
-    borderBottomRightRadius: "2px"
+    borderBottomRightRadius: "2px",
   },
 
   title: {
-    color: DefaultPalette.white
-  }
+    color: DefaultPalette.white,
+  },
 });
 
 Winterfell.addInputType("myDropdown", Dropdown);
 
-const Home = props => {
+const Home = (props) => {
   const { state, dispatch } = useContext(StoreContext);
 
   return (
@@ -86,29 +86,29 @@ const Home = props => {
         >
           <Stack.Item className={styles.titleItem}>
             <Text variant="xxLarge" className={styles.title}>
-              deVere UK Mortgages for Overseas Clients
+              deVere UK Properties Expat Mortgage Suitability
             </Text>
           </Stack.Item>
           <Stack.Item className={styles.contentItem}>
             <Winterfell
               schema={schema}
-              onUpdate={update => {
+              onUpdate={(update) => {
                 Log.trace("Winterfell update: ", update);
                 dispatch({
                   type: types.SET_PROGRESS,
                   payload: {
                     currentValue: update.currentCount,
-                    total: update.totalCount
-                  }
+                    total: update.totalCount,
+                  },
                 });
               }}
               onSubmit={(questionAnswers, action) => {
                 dispatch({
                   type: types.SET_ANSWERS,
-                  payload: questionAnswers
+                  payload: questionAnswers,
                 });
                 props.history.push({
-                  pathname: "/result"
+                  pathname: "/result",
                 });
               }}
               disableSubmit

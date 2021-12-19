@@ -13,7 +13,7 @@ const styles = mergeStyleSets({
 
   stackContainer: {
     width: "100%",
-    marginTop: "8vh"
+    marginTop: "2vh"
   },
 
   item: {

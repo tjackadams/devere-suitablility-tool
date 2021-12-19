@@ -2234,6 +2234,14 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
+"@types/react@^16.8.20":
+  version "16.8.20"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.20.tgz#4f633ecbd0a4d56d0ccc50fff6f9321bbcd7d583"
+  integrity sha512-ZLmI+ubSJpfUIlQuULDDrdyuFQORBuGOvNnMue8HeA0GVrAJbWtZQhcBvnBPNRBI/GrfSfrKPFhthzC2SLEtLQ==
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^2.2.0"
+
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"

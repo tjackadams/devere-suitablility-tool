@@ -8,25 +8,25 @@ import {
 
 const styles = mergeStyleSets({
   container: {
-    width: "100%"
+    width: "100%",
   },
 
   stackContainer: {
     width: "100%",
-    marginTop: "8vh"
+    marginTop: "2vh",
   },
 
   item: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
 
   titleItem: {
     padding: "20px",
     borderWidth: "1px",
     borderStyle: "solid",
-    borderColor: "rgb(138, 136, 134)"
+    borderColor: "rgb(138, 136, 134)",
   },
 
   contentItem: {
@@ -35,8 +35,8 @@ const styles = mergeStyleSets({
     borderStyle: "solid",
     borderColor: "rgb(138, 136, 134)",
     borderBottomLeftRadius: "2px",
-    borderBottomRightRadius: "2px"
-  }
+    borderBottomRightRadius: "2px",
+  },
 });
 
 const PageLoader = () => (

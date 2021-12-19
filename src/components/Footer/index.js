@@ -18,11 +18,7 @@ const styles = mergeStyleSets({
 
 const Footer = () => (
   <Stack.Item className={styles.item}>
-    <Link
-      href="https://www.devere-mortgages.co.uk/terms-of-use"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <Link target="_blank" rel="noopener noreferrer">
       Terms of use
     </Link>
   </Stack.Item>

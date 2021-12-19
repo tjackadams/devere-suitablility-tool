@@ -1,3 +1,4 @@
+import { TextField } from "office-ui-fabric-react";
 import React from "react";
 
 class TextInput extends React.Component {
@@ -5,14 +6,14 @@ class TextInput extends React.Component {
     super(props);
 
     this.state = {
-      value: this.props.value
+      value: this.props.value,
     };
   }
 
   handleChange(e) {
     this.setState(
       {
-        value: e.target.value
+        value: e.target.value,
       },
       this.props.onChange.bind(null, e.target.value)
     );
@@ -20,8 +21,7 @@ class TextInput extends React.Component {
 
   render() {
     return (
-      <input
-        type="text"
+      <TextField
         name={this.props.name}
         id={this.props.id}
         aria-labelledby={this.props.labelId}
@@ -45,7 +45,7 @@ TextInput.defaultProps = {
   placeholder: "",
   onChange: () => {},
   onBlur: () => {},
-  onKeyDown: () => {}
+  onKeyDown: () => {},
 };
 
 export default TextInput;
