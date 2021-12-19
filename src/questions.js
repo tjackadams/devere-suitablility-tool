@@ -115,6 +115,11 @@ const questions = [
               state: "OK",
             },
             {
+              text: "Japan",
+              value: "japan",
+              state: "OK"
+            },
+            {
               text: "Kuwait",
               value: "kuwait",
               state: "OK",
@@ -452,6 +457,11 @@ const questions = [
               text: "US Dollar (USD)",
               value: "usd",
               state: "OK",
+            },
+            {
+              text: "Japanese Yen (JPY)",
+              value: "jpy",
+              state: "OK"
             },
             {
               text: "Other",

@@ -3,27 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/jest": "^24.0.15",
-    "@types/node": "^12.0.8",
-    "@types/react": "^16.8.20",
-    "@types/react-dom": "^16.8.4",
-    "@uifabric/fluent-theme": "^7.0.2",
+    "@types/jest": "^25.2.3",
+    "@types/node": "^14.0.6",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "@uifabric/fluent-theme": "^7.1.88",
     "classnames": "^2.2.6",
     "debug": "^4.1.1",
     "keycodez": "^1.0.0",
-    "office-ui-fabric-core": "^10.1.0",
-    "office-ui-fabric-react": "^7.3.0",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.6",
+    "office-ui-fabric-core": "^11.0.0",
+    "office-ui-fabric-react": "^7.117.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-error-boundaries": "^1.1.4",
-    "react-ga": "^2.5.7",
-    "react-pose": "^4.0.8",
-    "react-router": "^5.0.1",
-    "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
-    "source-map-explorer": "^2.0.0",
-    "typescript": "^3.5.2",
-    "validator": "^11.0.0"
+    "react-ga": "^2.7.0",
+    "react-pose": "^4.0.10",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "source-map-explorer": "^2.4.2",
+    "typescript": "^3.9.3",
+    "validator": "^13.0.0"
   },
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
@@ -51,6 +51,6 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-you-dont-need-lodash-underscore": "^6.5.0"
+    "eslint-plugin-you-dont-need-lodash-underscore": "^6.10.0"
   }
 }
