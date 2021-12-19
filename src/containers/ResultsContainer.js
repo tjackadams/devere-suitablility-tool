@@ -19,7 +19,7 @@ const styles = mergeStyleSets({
 
   stackContainer: {
     width: "100%",
-    marginTop: "8vh"
+    marginTop: "2vh"
   },
 
   item: {
@@ -99,7 +99,7 @@ const ResultsContainer = props => {
               alignItems: "center",
               justifyContent: "center",
               verticalAlign: "top",
-              textAlign: "center"
+              textAlign: "center",
             }}
             tokens={{ childrenGap: 20 }}
           >
@@ -107,7 +107,7 @@ const ResultsContainer = props => {
               style={{
                 width: "100%",
                 display: "flex",
-                textAlign: "center"
+                textAlign: "center",
               }}
             >
               <Icon
@@ -123,14 +123,11 @@ const ResultsContainer = props => {
               style={{
                 width: "100%",
                 display: "flex",
-                textAlign: "center"
+                textAlign: "center",
               }}
             >
               <Text block variant="smallPlus">
-                Please contact the deVere Mortgage Team on +44 3333449510, or
-                alternatively email us to book in for a free telephone
-                consultation
-                <br /> at mortgages@devere-mortgages.co.uk
+                We advise you speak with a mortgage advisor before proceeding.
               </Text>
             </Stack.Item>
           </Stack>
@@ -144,7 +141,7 @@ const ResultsContainer = props => {
               alignItems: "center",
               justifyContent: "center",
               verticalAlign: "top",
-              textAlign: "center"
+              textAlign: "center",
             }}
             tokens={{ childrenGap: 20 }}
           >
@@ -152,7 +149,7 @@ const ResultsContainer = props => {
               style={{
                 width: "100%",
                 display: "flex",
-                textAlign: "center"
+                textAlign: "center",
               }}
             >
               <Icon
@@ -168,14 +165,11 @@ const ResultsContainer = props => {
               style={{
                 width: "100%",
                 display: "flex",
-                textAlign: "center"
+                textAlign: "center",
               }}
             >
               <Text block variant="smallPlus">
-                Please contact the deVere Mortgage Team on +44 3333449510, or
-                alternatively email us to book in for a free telephone
-                consultation
-                <br /> at mortgages@devere-mortgages.co.uk
+                We advise you speak with a mortgage advisor before proceeding.
               </Text>
             </Stack.Item>
           </Stack>
@@ -189,7 +183,7 @@ const ResultsContainer = props => {
               alignItems: "center",
               justifyContent: "center",
               verticalAlign: "top",
-              textAlign: "center"
+              textAlign: "center",
             }}
             tokens={{ childrenGap: 20 }}
           >
@@ -197,7 +191,7 @@ const ResultsContainer = props => {
               style={{
                 width: "100%",
                 display: "flex",
-                textAlign: "center"
+                textAlign: "center",
               }}
             >
               <Icon
@@ -213,15 +207,14 @@ const ResultsContainer = props => {
               style={{
                 width: "100%",
                 display: "flex",
-                textAlign: "center"
+                textAlign: "center",
               }}
             >
               <Text variant="smallPlus">
-                You have a strong case to obtain a UK Ex-pat mortgage, but if
-                you would like to discuss further please contact the deVere
-                Mortgage Team on +44 3333449510, or alternatively email us to
-                book in for a free telephone consultation at
-                mortgages@devere-mortgages.co.uk
+                This is not an agreement in principle. A mortgage advisor can
+                obtain you a full agreement in principle with interest rates. A
+                mortage advisor will be in contact with you within 24 hours if
+                you chose to be contacted.
               </Text>
             </Stack.Item>
           </Stack>
@@ -232,10 +225,10 @@ const ResultsContainer = props => {
   };
 
   const getAnswers = ({ answers, state }) => {
-    const result = Object.keys(answers).map(answer => {
+    const result = Object.keys(answers).map((answer) => {
       const questionSet = questions
-        .map(q => {
-          return q.questions.filter(question => {
+        .map((q) => {
+          return q.questions.filter((question) => {
             if (question.questionId == answer) {
               return question;
             }
@@ -243,22 +236,26 @@ const ResultsContainer = props => {
         })
         .reduce((acc, curr) => acc.concat(curr), [])[0];
 
-      const answeredQuestions = questionSet.input.options.map(opt => {
-        if (opt.value == answers[answer] && opt.state == state) {
-          return {
-            id: answer,
-            question: questionSet.question,
-            answer: opt.text,
-            reason: opt.reason
-          };
-        }
-      });
+      if (questionSet.input.options) {
+        const answeredQuestions = questionSet.input.options.map((opt) => {
+          if (opt.value == answers[answer] && opt.state == state) {
+            return {
+              id: answer,
+              question: questionSet.question,
+              answer: opt.text,
+              reason: opt.reason,
+            };
+          }
+        });
 
-      const filtered = answeredQuestions.filter(aq => {
-        return aq !== undefined;
-      });
+        const filtered = answeredQuestions.filter((aq) => {
+          return aq !== undefined;
+        });
 
-      return filtered[0];
+        return filtered[0];
+      }
+
+      return undefined;
     });
 
     for (let key in result) {
@@ -269,7 +266,7 @@ const ResultsContainer = props => {
 
     const myResult = [];
 
-    Object.keys(result).map(r => {
+    Object.keys(result).map((r) => {
       Log.info(result[r]);
       myResult.push(result[r]);
     });

@@ -17,23 +17,23 @@ const questions = [
               text: "Buy to Let",
               value: 0,
               state: "OK",
-              default: true
+              default: true,
             },
             {
               text: "Residential",
               value: 1,
-              state: "OK"
+              state: "OK",
             },
             {
               text: "Not Sure",
               value: 2,
               state: "Warning",
-              reason: LimitChoiceOfLenders
-            }
-          ]
-        }
-      }
-    ]
+              reason: LimitChoiceOfLenders,
+            },
+          ],
+        },
+      },
+    ],
   },
   {
     questionSetId: "btl-age-set",
@@ -49,18 +49,18 @@ const questions = [
               text: "No",
               value: 0,
               state: "OK",
-              default: true
+              default: true,
             },
             {
               text: "Yes",
               value: 1,
               state: "Warning",
-              reason: LimitChoiceOfLenders
-            }
-          ]
-        }
-      }
-    ]
+              reason: LimitChoiceOfLenders,
+            },
+          ],
+        },
+      },
+    ],
   },
   {
     questionSetId: "resi-age-set",
@@ -75,19 +75,19 @@ const questions = [
             {
               text: "No",
               value: 0,
-              state: "OK"
+              state: "OK",
             },
             {
               text: "Yes",
               value: 1,
               state: "Warning",
               reason:
-                "If the mortgage term extends into retirement, then retirement income would need to be provided to ensure monthly repayments can be met. We would advise you contact us for a full consultation."
-            }
-          ]
-        }
-      }
-    ]
+                "If the mortgage term extends into retirement, then retirement income would need to be provided to ensure monthly repayments can be met. We would advise you contact us for a full consultation.",
+            },
+          ],
+        },
+      },
+    ],
   },
   {
     questionSetId: "country-set",
@@ -102,75 +102,75 @@ const questions = [
             {
               text: "China",
               value: "china",
-              state: "OK"
+              state: "OK",
             },
             {
               text: "France",
               value: "france",
-              state: "OK"
+              state: "OK",
             },
             {
               text: "Hong Kong",
               value: "hongkong",
-              state: "OK"
+              state: "OK",
             },
             {
               text: "Kuwait",
               value: "kuwait",
-              state: "OK"
+              state: "OK",
             },
             {
               text: "Netherlands",
               value: "netherlands",
-              state: "OK"
+              state: "OK",
             },
             {
               text: "New Zealand",
               value: "newzealand",
-              state: "OK"
+              state: "OK",
             },
             {
               text: "Oman",
               value: "oman",
-              state: "OK"
+              state: "OK",
             },
             {
               text: "Qatar",
               value: "qatar",
-              state: "OK"
+              state: "OK",
             },
             {
               text: "Spain",
               value: "spain",
-              state: "OK"
+              state: "OK",
             },
             {
               text: "Switzerland",
               value: "switzerland",
-              state: "OK"
+              state: "OK",
             },
             {
               text: "United Arab Emirates",
               value: "uae",
-              state: "OK"
+              state: "OK",
             },
 
             {
               text: "United States of America",
               value: "usa",
-              state: "OK"
+              state: "OK",
             },
 
             {
               text: "Other",
               value: "other",
               state: "Warning",
-              reason: LimitChoiceOfLenders
-            }
-          ]
-        }
-      }
-    ]
+              reason: LimitChoiceOfLenders,
+            },
+          ],
+        },
+      },
+    ],
   },
   {
     questionSetId: "limited-company-set",
@@ -186,18 +186,18 @@ const questions = [
               text: "No",
               value: 0,
               state: "OK",
-              default: true
+              default: true,
             },
             {
               text: "Yes",
               value: 1,
               state: "Warning",
-              reason: LimitChoiceOfLenders
-            }
-          ]
-        }
-      }
-    ]
+              reason: LimitChoiceOfLenders,
+            },
+          ],
+        },
+      },
+    ],
   },
   {
     questionSetId: "uk-bank-account-set",
@@ -213,25 +213,25 @@ const questions = [
               text: "Yes",
               value: 1,
               state: "OK",
-              default: true
+              default: true,
             },
             {
               text: "No",
               value: 0,
               state: "Error",
               reason:
-                "Most lenders require monthly payments to come from  UK mainland bank account. There are lenders that will accept offshore UK bank accounts, but this could have an adverse affect on the offered interest rate. We would advise you contact us for a full consultation."
+                "Most lenders require monthly payments to come from  UK mainland bank account. There are lenders that will accept offshore UK bank accounts, but this could have an adverse affect on the offered interest rate. We would advise you contact us for a full consultation.",
             },
             {
               text: "Not Sure",
               value: 2,
               state: "Warning",
-              reason: LimitChoiceOfLenders
-            }
-          ]
-        }
-      }
-    ]
+              reason: LimitChoiceOfLenders,
+            },
+          ],
+        },
+      },
+    ],
   },
   {
     questionSetId: "uk-passport-set",
@@ -247,23 +247,23 @@ const questions = [
               text: "Yes",
               value: 1,
               state: "OK",
-              default: true
+              default: true,
             },
             {
               text: "No",
               value: 0,
-              state: "OK"
+              state: "OK",
             },
             {
               text: "Not Sure",
               value: 2,
               state: "Warning",
-              reason: LimitChoiceOfLenders
-            }
-          ]
-        }
-      }
-    ]
+              reason: LimitChoiceOfLenders,
+            },
+          ],
+        },
+      },
+    ],
   },
   {
     questionSetId: "eu-passport-set",
@@ -280,18 +280,18 @@ const questions = [
               value: 1,
               state: "Warning",
               reason: LimitChoiceOfLenders,
-              default: true
+              default: true,
             },
             {
               text: "No",
               value: 0,
               state: "Warning",
-              reason: LimitChoiceOfLenders
-            }
-          ]
-        }
-      }
-    ]
+              reason: LimitChoiceOfLenders,
+            },
+          ],
+        },
+      },
+    ],
   },
   {
     questionSetId: "uk-credit-set",
@@ -307,24 +307,24 @@ const questions = [
               text: "Yes",
               value: 1,
               state: "OK",
-              default: true
+              default: true,
             },
             {
               text: "No",
               value: 0,
               state: "Warning",
-              reason: LimitChoiceOfLenders
+              reason: LimitChoiceOfLenders,
             },
             {
               text: "Not Sure",
               value: 2,
               state: "Warning",
-              reason: LimitChoiceOfLenders
-            }
-          ]
-        }
-      }
-    ]
+              reason: LimitChoiceOfLenders,
+            },
+          ],
+        },
+      },
+    ],
   },
   {
     questionSetId: "adverse-credit-set",
@@ -341,24 +341,24 @@ const questions = [
               text: "No",
               value: 0,
               state: "OK",
-              default: true
+              default: true,
             },
             {
               text: "Yes",
               value: 1,
               state: "Error",
-              reason: LimitChoiceOfLenders
+              reason: LimitChoiceOfLenders,
             },
             {
               text: "Not Sure",
               value: 2,
               state: "Warning",
-              reason: LimitChoiceOfLenders
-            }
-          ]
-        }
-      }
-    ]
+              reason: LimitChoiceOfLenders,
+            },
+          ],
+        },
+      },
+    ],
   },
   {
     questionSetId: "employment-set",
@@ -374,17 +374,17 @@ const questions = [
               text: "No",
               value: 0,
               state: "OK",
-              default: true
+              default: true,
             },
             {
               text: "Yes",
               value: 1,
-              state: "OK"
-            }
-          ]
-        }
-      }
-    ]
+              state: "OK",
+            },
+          ],
+        },
+      },
+    ],
   },
   {
     questionSetId: "employment-books-set",
@@ -400,18 +400,18 @@ const questions = [
               text: "Yes",
               value: 1,
               state: "OK",
-              default: true
+              default: true,
             },
             {
               text: "No",
               value: 0,
               state: "Warning",
-              reason: LimitChoiceOfLenders
-            }
-          ]
-        }
-      }
-    ]
+              reason: LimitChoiceOfLenders,
+            },
+          ],
+        },
+      },
+    ],
   },
   {
     questionSetId: "currency-set",
@@ -426,43 +426,43 @@ const questions = [
             {
               text: "Great British Pound (GBP)",
               value: "gbp",
-              state: "OK"
+              state: "OK",
             },
             {
               text: "Swiss Franc (CHF)",
               value: "chf",
-              state: "OK"
+              state: "OK",
             },
             {
               text: "Emirati Dirham (AED)",
               value: "aed",
-              state: "OK"
+              state: "OK",
             },
             {
               text: "Qatari Riyal (QAR)",
               value: "qar",
-              state: "OK"
+              state: "OK",
             },
             {
               text: "Euro (EUR)",
               value: "eur",
-              state: "OK"
+              state: "OK",
             },
             {
               text: "US Dollar (USD)",
               value: "usd",
-              state: "OK"
+              state: "OK",
             },
             {
               text: "Other",
               value: "other",
               state: "Warning",
-              reason: LimitChoiceOfLenders
-            }
-          ]
-        }
-      }
-    ]
+              reason: LimitChoiceOfLenders,
+            },
+          ],
+        },
+      },
+    ],
   },
   {
     questionSetId: "first-time-buyer-set",
@@ -481,19 +481,19 @@ const questions = [
               state: "OK",
               reason:
                 "Regardless of whether this is your first property in the UK for any of the applicants, you will still be subject to the additional Stamp Duty Land Tax charges. The additional charges will still apply if you are married and purchase as a sole applicant first time buyer within the UK, but your spouse currently owns property worldwide.",
-              default: true
+              default: true,
             },
             {
               text: "No",
               value: 0,
               state: "OK",
               reason:
-                "If this is a Buy to Let property, you will still be subject to Stamp Duty Land Tax charges."
-            }
-          ]
-        }
-      }
-    ]
+                "If this is a Buy to Let property, you will still be subject to Stamp Duty Land Tax charges.",
+            },
+          ],
+        },
+      },
+    ],
   },
   {
     questionSetId: "additional-funds-set",
@@ -512,20 +512,65 @@ const questions = [
               state: "OK",
               reason:
                 "Additional lenders and lower rates can be offered, if the deposit is above 35% of the property value. This can be subject to other criteria being met.",
-              default: true
+              default: true,
             },
             {
               text: "No",
               value: 0,
               state: "Warning",
               reason:
-                "In the unlikely event that the property value falls beneath the purchase price, additional funds would need to be provided."
-            }
-          ]
-        }
-      }
-    ]
-  }
+                "In the unlikely event that the property value falls beneath the purchase price, additional funds would need to be provided.",
+            },
+          ],
+        },
+      },
+    ],
+  },
+  {
+    questionSetId: "contact-details-set",
+    questions: [
+      {
+        questionId: "AdvisorName",
+        question: "Advisors Name",
+        input: {
+          type: "textInput",
+          required: true,
+        },
+      },
+      {
+        questionId: "ContactNumber",
+        question: "Contact Number",
+        input: {
+          type: "textInput",
+          required: false,
+        },
+      },
+      {
+        questionId: "ClientName",
+        question: "Clients Name",
+        input: {
+          type: "textInput",
+          required: true,
+        },
+      },
+      {
+        questionId: "PreferredDevelopment",
+        question: "Preferred Development",
+        input: {
+          type: "textInput",
+          required: true,
+        },
+      },
+      {
+        questionId: "CanWeContact",
+        question: "Is it OK to be contacted by a Mortgage Advisor?",
+        input: {
+          type: "checkboxInput",
+          required: true,
+        },
+      },
+    ],
+  },
 ];
 
 export default questions;
